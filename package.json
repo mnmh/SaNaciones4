@@ -5,7 +5,7 @@
   "scripts": {
     "start": "parcel src/*.html",
     "build": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
-    "deploy": "gh-pages -d public"
+    "deploy": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./ && gh-pages -d public"
   },
   "keywords": [],
   "author": "",
