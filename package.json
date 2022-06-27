@@ -4,13 +4,15 @@
   "description": "",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./"
+    "build": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
+    "deploy": "gh-pages -d public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.2",
+    "gh-pages": "^4.0.0",
     "parcel": "^2.6.2",
     "rimraf": "^3.0.2"
   }
