@@ -18,6 +18,10 @@ barba.use(barbaCss);
 import LocomotiveScroll from 'locomotive-scroll';
 const scroll = new LocomotiveScroll();
 
+// Add-to-Calendar Button
+// https://github.com/jekuer/add-to-calendar-button
+import { atcb_action, atcb_init } from 'add-to-calendar-button';
+
 // modules JS
 // icons
 import './icons.js';

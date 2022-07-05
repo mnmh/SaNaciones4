@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "description": "App SaNaciones, caminos de resistencia",
   "scripts": {
+    "preinstall": "rimraf dist && rimraf public",
     "start": "parcel src/*.html --open",
     "build": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
     "deploy": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./ && gh-pages -d public"
@@ -14,6 +15,7 @@
     "@barba/core": "^2.9.7",
     "@barba/css": "^2.1.15",
     "@parcel/transformer-sass": "^2.6.2",
+    "add-to-calendar-button": "^1.10.0",
     "gh-pages": "^4.0.0",
     "gsap": "^3.10.4",
     "locomotive-scroll": "^4.1.4",
