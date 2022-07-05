@@ -3,10 +3,12 @@
   "version": "4.0.0",
   "description": "App SaNaciones, caminos de resistencia",
   "scripts": {
-    "preinstall": "rimraf dist && rimraf public",
     "start": "parcel src/*.html --open",
-    "build": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
-    "deploy": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./ && gh-pages -d public"
+    "prebuild": "rimraf public",
+    "build": "parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
+    "predeploy": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
+    "deploy": "gh-pages -d public",
+    "reinstall": "rimraf .parcel-cache && rimraf dist && rimraf public && rimraf node_modules && npm install"
   },
   "keywords": [],
   "author": "Laboratorio digital 2022 - Museo de Memoria de Colombia",
@@ -20,7 +22,9 @@
     "gsap": "^3.10.4",
     "locomotive-scroll": "^4.1.4",
     "lucide": "^0.72.0",
-    "parcel": "^2.6.2",
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
     "rimraf": "^3.0.2"
   }
 }
