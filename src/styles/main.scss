@@ -1,5 +1,2 @@
-@import 'other';
-
-body {
-  background: $bodyBackground;
-}
+@use '_reset';
+@use '_styles';

@@ -1,18 +1,23 @@
 {
   "name": "sanaciones-web",
-  "version": "1.0.0",
-  "description": "",
+  "version": "4.0.0",
+  "description": "App SaNaciones, caminos de resistencia",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html --open",
     "build": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
     "deploy": "rimraf public/* && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./ && gh-pages -d public"
   },
   "keywords": [],
-  "author": "",
+  "author": "Laboratorio digital 2022 - Museo de Memoria de Colombia",
   "license": "ISC",
   "devDependencies": {
+    "@barba/core": "^2.9.7",
+    "@barba/css": "^2.1.15",
     "@parcel/transformer-sass": "^2.6.2",
     "gh-pages": "^4.0.0",
+    "gsap": "^3.10.4",
+    "locomotive-scroll": "^4.1.4",
+    "lucide": "^0.72.0",
     "parcel": "^2.6.2",
     "rimraf": "^3.0.2"
   }

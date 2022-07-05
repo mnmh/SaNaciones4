@@ -1,0 +1,35 @@
+@use '_colors' as c;
+
+/* ::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+} */
+
+body {
+  background: c.$bodyBackground;
+}
+
+.icon {
+  width: 48;
+  height: 48;
+  stroke-width: 1;
+  stroke: aliceblue;
+}
+
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+} */
