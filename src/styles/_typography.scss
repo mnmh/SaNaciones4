@@ -1,5 +1,4 @@
 // voz curatorial 
-// Fira Sans Italic
 // https: //fonts.google.com/specimen/Fira+Sans
 @font-face {
   font-family: 'Fira Sans';
@@ -16,7 +15,6 @@
   font-display: swap;
 }
 
-// Noto Serif Display Italic
 //https: //fonts.google.com/noto/specimen/Noto+Sans+Display
 @font-face {
   font-family: 'Noto Serif Display';
@@ -28,11 +26,44 @@
 
 //
 // voz curatorial
-// Bitter
 // https: //fonts.google.com/specimen/Bitter
 @font-face {
   font-family: 'Bitter';
   src: url('../fonts/Bitter-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
+}
+
+h2,
+p {
+  -webkit-marquee-increment: 0vw;
+  // Font minimum, preferred and maximum value
+  font-size: clamp(var(--min), var(--val), var(--max));
+}
+
+/* h1 {
+  --min: 2rem; // minimum value
+  --val: 5vw; // preferred value = 5% viewport width
+  --max: 3rem; // maximum value
+} */
+h2 {
+  --min: 1.5rem; // minimum value */
+  --val: 4vw; // preferred value = 4% viewport width */
+  --max: 2.25rem; // maximum value */
+}
+
+p {
+  --min: 1.2rem;
+  --val: calc(0.5vw + 1rem);
+  --max: 2.2rem;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 200;
+  font-style: italic;
+  line-height: 1.5;
+  display: inline-block;
+  max-width: 54ch;
+  //max-width: 65ch;
+  //max-width: 33em;
+  margin-bottom: 2.5rem;
+  color: beige;
 }
