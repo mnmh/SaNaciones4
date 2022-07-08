@@ -1,4 +1,4 @@
-@use '_colors' as *;
+@use '_vars' as *;
 @use '_typography';
 
 header {
@@ -8,7 +8,6 @@ header {
     left: 0;
     z-index: 1000;
     width: 100%;
-    height: 80px;
     padding: 0;
     display: flex;
     flex-flow: row nowrap;
@@ -19,22 +18,22 @@ header {
       z-index: 1010;
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 80px;
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
+      justify-content: center;
 
       a#logo {
-        display: block;
-        height: 100%;
-        width: auto;
-        background-color: $color-text;
-        -webkit-mask-image: url("../images/sanaciones-logo.svg");
-        mask-image: url("../images/sanaciones-logo.svg");
-        -webkit-mask-repeat: no-repeat;
+        height: 60%;
+        margin-top: 2%;
+        background-color: black;
         mask-repeat: no-repeat;
-        -webkit-mask-position: center;
         mask-position: center;
+        mask-image: url("../images/sanaciones-logo.svg");
+        -webkit-mask-image: url("../images/sanaciones-logo.svg");
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
         transition: opacity 0.3s ease-out;
 
         &:hover {
@@ -84,8 +83,8 @@ header {
 
         @for $i from 1 through 5 {
           &.trama#{$i} {
-            -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
             mask-image: url("../images/menu-trama-#{$i}.svg");
+            -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
           }
         }
       }
@@ -182,12 +181,12 @@ header {
       width: 100%;
       height: 100%;
       background-color: salmon;
-      -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
-      -webkit-mask-position: center;
       mask-position: center;
-      -webkit-mask-image: url("../images/eye-close.svg");
       mask-image: url("../images/eye-close.svg");
+      -webkit-mask-image: url("../images/eye-close.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
     }
 
     /* &:hover {
@@ -316,8 +315,8 @@ header {
             .trama {
               background-color: white;
               //background-color: nth($colors-caminos, $i);
-              -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
               mask-image: url("../images/menu-trama-#{$i}.svg");
+              -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
             }
           }
         }
@@ -410,6 +409,7 @@ header {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(-360deg);
   }
@@ -419,6 +419,7 @@ header {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -428,18 +429,19 @@ header {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(5px);
   }
 }
 
 .transMenu-enter {
-  clip-path: var(--mask);
-  //clip-path: circle(0% at var(--x, 50vw) var(--y, 50vh));
+  //clip-path: var(--mask);
+  clip-path: circle(0% at var(--x, 50vw) var(--y, 50vh));
 }
 
 .transMenu-enter-active {
-  transition: all 1.2s cubic-bezier(.08, .24, .19, 1);
+  transition: all 4s cubic-bezier(.08, .24, .19, 1);
   position: absolute;
   top: 0;
   z-index: 2;
@@ -455,7 +457,7 @@ header {
 
 .transMenu-leave-active {
   z-index: 1;
-  transition: all 1.2s cubic-bezier(.08, .24, .19, 1);
+  transition: all 4s cubic-bezier(.08, .24, .19, 1);
 }
 
 .transMenu-leave-to {
@@ -495,8 +497,8 @@ header {
   @for $i from 1 through 5 {
     &.trama#{$i} {
       span {
-        -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
         mask-image: url("../images/menu-trama-#{$i}.svg");
+        -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
       }
     }
   }

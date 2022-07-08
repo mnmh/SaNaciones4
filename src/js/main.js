@@ -19,6 +19,11 @@ const scroll = new LocomotiveScroll(); */
 // https://github.com/jekuer/add-to-calendar-button
 /* import { atcb_action, atcb_init } from 'add-to-calendar-button'; */
 
+// scripts
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 //
 // modules JS
 //
@@ -26,11 +31,5 @@ const scroll = new LocomotiveScroll(); */
 import './icons.js';
 // menu
 import './menu.js';
-// page transiciones
-import './transitions.js';
 
 //
-// scripts
-
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);

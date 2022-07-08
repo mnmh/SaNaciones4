@@ -1,8 +1,7 @@
-@use '_colors' as *;
+@use '_vars' as *;
 @use '_typography';
 
 body {
-  --mask: circle(0% at var(--x, 50vw) var(--y, 50vh));
   background-color: white;
   -webkit-transition: background-color 0.5s ease-out;
   -moz-transition: background-color 0.5s ease-out;
@@ -46,6 +45,14 @@ body {
   }
 }
 
+main {
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  position: relative;
+  //clip-path: circle(0% at var(--x, 50vw) var(--y, 50vh));
+}
+
 section {
   width: 100%;
   display: flex;
@@ -63,6 +70,105 @@ article {
   flex-flow: column nowrap;
   padding: 0 20px;
 }
+
+#content {
+  position: relative;
+  width: fit-content;
+  max-width: 800px;
+  margin: 10% auto;
+  display: flex;
+  flex-flow: column nowrap;
+  z-index: 100;
+  opacity: 0;
+
+  h1 {
+    font-size: 10vw;
+    line-height: 0.8;
+    margin-bottom: 50px;
+    color: salmon;
+  }
+}
+
+.terrain {
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: transparent;
+
+  .home & {
+    background-color: gray;
+  }
+
+  .dialogo & {
+    background-color: lightpink;
+  }
+
+  .territorios & {
+    background-color: #27b554;
+  }
+
+  .resistencias & {
+    background-color: #50bcd2;
+  }
+
+  .fuerza & {
+    background-color: #bdc672;
+  }
+
+  .naciones & {
+    background-color: #3888d9;
+  }
+
+  .terrainIn {
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    mix-blend-mode: overlay;
+    mask-size: 99.9%;
+    mask-repeat: no-repeat;
+    mask-position: top center;
+    -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top center;
+
+    .home & {
+      mask-image: url("../images/terrain.svg");
+      -webkit-mask-image: url("../images/terrain.svg");
+    }
+
+    .dialogo & {
+      mask-image: url("../images/terrain-dialogo.svg");
+      -webkit-mask-image: url("../images/terrain-dialogo.svg");
+    }
+
+    .fuerza & {
+      mask-image: url("../images/terrain-fuerza.svg");
+      -webkit-mask-image: url("../images/terrain-fuerza.svg");
+    }
+
+    .naciones & {
+      mask-image: url("../images/terrain-naciones.svg");
+      -webkit-mask-image: url("../images/terrain-naciones.svg");
+    }
+
+    .resistencias & {
+      mask-image: url("../images/terrain-resistencias.svg");
+      -webkit-mask-image: url("../images/terrain-resistencias.svg");
+    }
+
+    .territorios & {
+      mask-image: url("../images/terrain-territorios.svg");
+      -webkit-mask-image: url("../images/terrain-territorios.svg");
+    }
+
+  }
+}
+
 
 /* ::selection {
   background-color: var(--negro);

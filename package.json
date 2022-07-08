@@ -3,8 +3,8 @@
   "version": "4.0.0",
   "description": "App SaNaciones, caminos de resistencia",
   "scripts": {
-    "start": "parcel src/*.html --open",
-    "predeploy": "rimraf public && parcel build src/*.html --dist-dir public --no-source-maps --no-cache --public-url ./",
+    "start": "parcel src/index.html --open",
+    "predeploy": "rimraf public && parcel build src/index.html --dist-dir public --no-source-maps --no-cache --public-url ./",
     "deploy": "gh-pages -d public",
     "reinstall": "rimraf .parcel-cache && rimraf dist && rimraf public && rimraf node_modules && npm install"
   },
