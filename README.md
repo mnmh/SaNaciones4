@@ -56,7 +56,7 @@ Folders + files
    .
 ├── dist               # Compiled dev files
 ├── public             # Compiled prod files
-├── src                # Test files (alternatively `spec` or `tests`)
+├── src                # Source files
 │   ├── fonts
 │   ├── images
 │   ├── js
