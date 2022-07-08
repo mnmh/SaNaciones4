@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin, Draggable);
 // BarbaJS https://barba.js.org/
 import barba from '@barba/core';
 import barbaCss from '@barba/css';
-//barba.use(barbaCss);
+barba.use(barbaCss);
 
 //
 let ulWidth = document.querySelector('#menuBox ul').clientWidth;
@@ -609,7 +609,7 @@ barba.init({
       async beforeLeave() {
         const done = this.async();
         await menuClose(caminoSel);
-        await delay(2000);
+        await delay(1000);
         gsap.to(loading, {
           opacity: 0,
           scale: 2,

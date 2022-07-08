@@ -9,27 +9,27 @@ body {
   transition: background-color 0.5s ease-out;
 
   &.homeBody {
-    background-color: #996de9;
+    background-color: $gray0;
   }
 
   &.dialogoBody {
-    background-color: lightpink;
+    background-color: $gray1;
   }
 
   &.territoriosBody {
-    background-color: #27b554;
+    background-color: $gray2;
   }
 
   &.resistenciasBody {
-    background-color: #50bcd2;
+    background-color: $gray3;
   }
 
   &.fuerzaBody {
-    background-color: #bdc672;
+    background-color: $gray4;
   }
 
   &.nacionesBody {
-    background-color: #3888d9;
+    background-color: $gray5;
   }
 
   &.programacion {
@@ -80,13 +80,6 @@ article {
   flex-flow: column nowrap;
   z-index: 100;
   opacity: 0;
-
-  h1 {
-    font-size: 10vw;
-    line-height: 0.8;
-    margin-bottom: 50px;
-    color: salmon;
-  }
 }
 
 .terrain {
@@ -100,31 +93,31 @@ article {
   background-color: transparent;
 
   .home & {
-    background-color: gray;
+    background-color: $gray0;
   }
 
   .dialogo & {
-    background-color: lightpink;
+    background-color: $gray1;
   }
 
   .territorios & {
-    background-color: #27b554;
+    background-color: $gray2;
   }
 
   .resistencias & {
-    background-color: #50bcd2;
+    background-color: $gray3;
   }
 
   .fuerza & {
-    background-color: #bdc672;
+    background-color: $gray4;
   }
 
   .naciones & {
-    background-color: #3888d9;
+    background-color: $gray5;
   }
 
   .terrainIn {
-    opacity: 0.8;
+    opacity: 0.2;
     width: 100%;
     height: 100%;
     background-color: black;

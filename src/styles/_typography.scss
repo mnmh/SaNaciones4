@@ -7,6 +7,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Fira Sans';
   src: url('../fonts/FiraSans-Italic.ttf') format('truetype');
@@ -35,6 +36,8 @@
 }
 
 h2,
+h3,
+h4,
 p {
   -webkit-marquee-increment: 0vw;
   // Font minimum, preferred and maximum value
@@ -47,9 +50,18 @@ p {
   --max: 3rem; // maximum value
 } */
 h2 {
-  --min: 1.5rem; // minimum value */
-  --val: 4vw; // preferred value = 4% viewport width */
-  --max: 2.25rem; // maximum value */
+  font-family: 'Bitter';
+  --min: 1.5rem;
+  --val: 4vw;
+  --max: 2.25rem;
+}
+
+h3,
+h4 {
+  font-family: 'Bitter';
+  --min: 1.5rem;
+  --val: 4vw;
+  --max: 2.25rem;
 }
 
 p {
