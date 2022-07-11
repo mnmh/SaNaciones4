@@ -2,6 +2,8 @@
 @use '_typography';
 
 body {
+  --x: 50vw;
+  --y: 50vh;
   background-color: white;
   -webkit-transition: background-color 0.5s ease-out;
   -moz-transition: background-color 0.5s ease-out;
@@ -40,9 +42,6 @@ body {
     background-color: transparent;
   }
 
-  &.menuOpen {
-    overflow-y: hidden;
-  }
 }
 
 main {
@@ -50,7 +49,6 @@ main {
   max-width: 100vw;
   display: flex;
   position: relative;
-  //clip-path: circle(0% at var(--x, 50vw) var(--y, 50vh));
 }
 
 section {
@@ -79,7 +77,6 @@ article {
   display: flex;
   flex-flow: column nowrap;
   z-index: 100;
-  opacity: 0;
 }
 
 .terrain {
@@ -91,6 +88,15 @@ article {
   top: 0;
   z-index: 10;
   background-color: transparent;
+
+  &.next {
+    clip-path: circle(0vw at var(--x, 50vw) var(--y, 50vh));
+    transition: all 2s cubic-bezier(.08, .24, .19, 1);
+
+    &.nextTo {
+      clip-path: circle(120vw at var(--x, 50vw) var(--y, 50vh));
+    }
+  }
 
   .home & {
     background-color: $gray0;
