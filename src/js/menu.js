@@ -15,6 +15,9 @@ import barba from '@barba/core';
 // Locomotive Scroll https://github.com/locomotivemtl/locomotive-scroll
 import LocomotiveScroll from 'locomotive-scroll';
 
+// locomotive data
+import scrolls from './scroll';
+
 //
 let ulWidth = document.querySelector('#menuBox ul').clientWidth;
 let ulHeight = document.querySelector('#menuBox ul').clientHeight;
@@ -553,7 +556,7 @@ menuChange.addEventListener(
 
 let smooth = () => {
   locoScroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
+    el: document.querySelector('#page'),
     smooth: true,
     smoothMobile: true,
     scrollFromAnywhere: true,
@@ -578,11 +581,13 @@ barba.init({
           {opacity: 0},
           {opacity: 1, duration: 1, delay: 0.5, ease: 'power2.out'}
         );
+        scrolls(next.container);
         smooth();
       },
       before: ({next}) => {
         mainDiv = next.container;
         next.container.querySelector('.terrain').classList.add('next');
+        scrolls(next.container);
       },
       async beforeLeave() {
         const done = this.async();
