@@ -45,10 +45,14 @@ body {
 }
 
 main {
-  width: 100%;
-  max-width: 100vw;
-  display: flex;
+  /* width: 100%;
+  height: 100%;
+  max-width: 100vw; */
+}
+
+#scroll-container {
   position: relative;
+  z-index: 100;
 }
 
 section {
@@ -71,9 +75,10 @@ article {
 
 #content {
   position: relative;
-  width: fit-content;
-  max-width: 800px;
-  margin: 10% auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10% 20px;
   display: flex;
   flex-flow: column nowrap;
   z-index: 100;
@@ -81,12 +86,13 @@ article {
 
 .terrain {
   pointer-events: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 100vw;
+  height: 140vh;
   left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 0;
+  //filter: blur(2px);
   background-color: transparent;
 
   &.next {
@@ -128,16 +134,13 @@ article {
     height: 100%;
     background-color: black;
     mix-blend-mode: overlay;
-    mask-size: 99.9%;
+    mask-size: cover;
     mask-repeat: no-repeat;
     mask-position: top center;
-    -webkit-mask-size: 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: top center;
 
     .home & {
-      mask-image: url("../images/terrain.svg");
-      -webkit-mask-image: url("../images/terrain.svg");
+      mask-image: url("../images/terrain-dialogo.svg");
+      -webkit-mask-image: url("../images/terrain-dialogo.svg");
     }
 
     .dialogo & {
@@ -165,6 +168,12 @@ article {
       -webkit-mask-image: url("../images/terrain-territorios.svg");
     }
 
+  }
+
+  .terrainIn {
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top center;
   }
 }
 
