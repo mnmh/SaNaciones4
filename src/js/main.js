@@ -13,8 +13,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 //
 // modules JS
 //
-// icons
-import './icons.js';
-
 // menu
 import './menu.js';
+// icons
+import './icons.js';

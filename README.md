@@ -6,17 +6,15 @@
 
 ## SaNaciones - caminos de resistencia
 
->  Live demo <a href="https://mnmh.github.io/SaNaciones4/" target="_blank">https://mnmh.github.io/SaNaciones4/</a>
+> Live demo <a href="https://mnmh.github.io/SaNaciones4/" target="_blank">https://mnmh.github.io/SaNaciones4/</a>
 
 <p>Micrositio de la exposición </br>
 Hecho con ❤️ por <a href="https://github.com/mnmh" target="_blank">Laboratorio digital</a>
 </p>
 
-
 ### Prerequisites
 
->  Install <a href="https://nodejs.org/en/" target="_blank">Node.js</a>
-
+> Install <a href="https://nodejs.org/en/" target="_blank">Node.js</a>
 
 ### Installation 🚀
 
@@ -33,27 +31,39 @@ Hecho con ❤️ por <a href="https://github.com/mnmh" target="_blank">Laborator
    npm start
    ```
    :+1:
-   
+
 ### Scripts
 
-Deploy demo
-   ```sh
-   npm run deploy
-   ```
+Build Demo (./public)
+
+```sh
+npm run build
+```
+
+Deploy Demo
+
+```sh
+npm run deploy
+```
+
 ReInstall project
-   ```sh
-   npm run reinstall
-   ```
+
+```sh
+npm run reinstall
+```
+
 Install package
-   ```sh
-   npm install --save-dev name-package
-   ```
-   
-### Structure 
+
+```sh
+npm install --save-dev name-package
+```
+
+### Structure
 
 Folders + files
-   ```sh
-   .
+
+```sh
+.
 ├── dist               # Compiled dev files
 ├── public             # Compiled prod files
 ├── src                # Source files
@@ -64,9 +74,9 @@ Folders + files
 │   └── .html          # .html files +
 ├── package.json
 └── README.md
-   ```
+```
 
-### Built With 
+### Built With
 
 - <a href="https://nodejs.org/en/" target="_blank">Node.js</a>
 - NPM

@@ -1,160 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SaNaciones - Caminos de resistencia</title>
-    <meta name="description" content="SaNaciones" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="www.museodememoriahistorica.gov.co" />
-    <script type="module" src="js/main.js"></script>
-  </head>
+  <include src="./partials/head.html">
+    { "title": "SaNaciones - Caminos de resistencia" }
+  </include>
 
-  <body data-barba="wrapper" class="dialogoBody">
+  <body data-barba="wrapper">
 
-    <header class="menu-banner">
-      <div id="headerBar">
-        <a href="index.html" aria-label="Ir al inicio" id="logo">
-          <img src="images/sanaciones-logo.svg" aria-hidden="true">
-        </a>
-      </div>
-      <button id="menu-toggle" aria-label="Show Navigation Menu" aria-expanded="false" aria-controls="menu" tabindex="0">
-        <div id="text-menu">Menú</div>
-      </button>
-    </header>
-    <nav id="menuBox" aria-hidden="true" aria-labelledby="menu-toggle" role="navigation">
-      <div id="menu-change" aria-hidden="true"></div>
-      <ul>
-        <li>
-          <a href="dialogo.html" aria-label="Ir al camino disposición al diálogo">
-            <div class="name">
-              <div class="title">Disposición<br>al diálogo</div>
-              <div class="lead">En todos los ámbitos de la vida y esencial en sus procesos de sanación</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="territorios.html" aria-label="Ir al camino territorios">
-            <div class="name">
-              <div class="title">Territorios</div>
-              <div class="lead">Conectan con lo sagrado y permiten ver las huellas que ha dejado el conflicto armado</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="resistencias.html" aria-label="Ir al camino resistencias históricas de los pueblos indígenas">
-            <div class="name">
-              <div class="title">Resistencias<br>históricas</div>
-              <div class="lead">Reinterpretan su memoria desde la palabra de vida y conocimiento</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="fuerza.html" aria-label="Ir al camino la fuerza de lo colectivo">
-            <div class="name">
-              <div class="title">La fuerza de<br>lo colectivo</div>
-              <div class="lead">Unidos son más fuertes para enfrentar la violencia de actores armados</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="naciones.html" aria-label="Ir al camino Naciones">
-            <div class="name">
-              <div class="title">Naciones</div>
-              <div class="lead">Involucra la cosmovisión, la autonomía y la autodeterminación</div>
-            </div>
-          </a>
-        </li>
-      </ul>
-      <div id="descripciones" aria-hidden="true"></div>
-
-      <div id="backImg" aria-hidden="true"></div>
-
-    </nav>
+    <include src="./partials/header.html"></include>
 
     <main data-barba="container" data-barba-namespace="dialogo" class="dialogo">
+
       <!-- Frase de apertura  -->
       <div id="content" data-scroll-container>
-        <blockquote>
-          <p>
-            La palabra sin acción es vacía, la acción sin palabra es ciega, la palabra y la acción por fuera del espíritu
-            de la comunidad son la muerte.
-          </p>
-          <cite>
-            Pensamiento Nasa
-          </cite>
+        <div id="contentIn">
 
-        </blockquote>
+          <section>
+            <blockquote>
+              <p>
+                La palabra sin acción es vacía, la acción sin palabra es ciega, la palabra y la acción por fuera del espíritu
+                de la comunidad son la muerte.
+              </p>
+              <cite>
+                Pensamiento Nasa
+              </cite>
 
-        <!-- Parrafo explicativo  -->
-        <section class="curaduria">
-          <p>
-            El diálogo se plantea como un intercambio horizontal entre personas que reconocen, entienden y valoran sus
-            diferencias de pensamiento. En esta ocasión, la conversación gira en torno a la comprensión del mundo, la
-            organización política, los conocimientos y las prácticas medicinales-espirituales de algunos pueblos
-            indígenas, con el fin de seguir incentivando el diálogo sobre la memoria histórica del conflicto, que aún
-            persiste, y de tejer caminos para sanar.
-          </p>
-          <p>
-            Alentar el diálogo entre pensamientos distintos permite transformar los imaginarios errados y desdibujar
-            calificativos negativos sobre los otros. Nos invita a reconocernos como ciudadanos con diferencias en nuestra
-            manera de ser, pensar, sentir y habitar el mundo, pero que pueden convivir y aprender de los demás, siempre a
-            partir de acuerdos basados en el respeto, la tolerancia y la defensa de la vida.
-          </p>
-        </section>
-        <!-- Saludos de los pueblos -->
-        <!-- 1 Pueblo Wiwa -->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            Kawanyina Serankua ungunanba ne une.
-          </h4>
-          <p>
-            <em>Hermanos todos, Serankua guíe nuestros caminos.</em>
-          </p>
-          <cite>
-            Pueblo Wiwa - Organización Wiwa Golkushe Tayrona (Sierra Nevada de Santa Marta, Cesar y La Guajira)
-          </cite>
-        </blockquote>
-        <!-- 2 Pueblo Okaina Muinane Bora-->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            Bienvenidos a compartir experiencias de memorias vivas, desde el conocimiento propio de la esencia del tabaco,
-            la coca y la yuca dulce para sanar, cuidar la vida, trabajar, multiplicarse y humanizarse.
-          </h4>
-          <cite>
-            Pueblos Uitoto-Mɨnɨka, Ɨvhuuza (Okaina), Gaigoomɨjo (Muinane) y Pɨɨneemuunáá (Bora).<br> Esencia del tabaco,
-            la coca y la yuca dulce de La Chorrera (Amazonas)
-          </cite>
-        </blockquote>
-        <!-- 3 Pueblo Bari-->
-        <!-- Unico saludo con audio  -->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            El Pueblo Barí somos los habitantes originarios del Da-bocyi (Catatumbo), herederos y guardianes de la
-            creación de SABASEBA.
-          </h4>
-          <cite>
-            Pueblo Barí (Catatumbo, Norte de Santander y Venezuela)
-          </cite>
-          <p>Dale play al audio</p>
-          <div class="audio-player" id="2">
+            </blockquote>
+          </section>
+
+
+          <!-- Parrafo explicativo  -->
+          <section class="curaduria">
+            <p>
+              El diálogo se plantea como un intercambio horizontal entre personas que reconocen, entienden y valoran sus
+              diferencias de pensamiento. En esta ocasión, la conversación gira en torno a la comprensión del mundo, la
+              organización política, los conocimientos y las prácticas medicinales-espirituales de algunos pueblos
+              indígenas, con el fin de seguir incentivando el diálogo sobre la memoria histórica del conflicto, que aún
+              persiste, y de tejer caminos para sanar.
+            </p>
+            <p>
+              Alentar el diálogo entre pensamientos distintos permite transformar los imaginarios errados y desdibujar
+              calificativos negativos sobre los otros. Nos invita a reconocernos como ciudadanos con diferencias en nuestra
+              manera de ser, pensar, sentir y habitar el mundo, pero que pueden convivir y aprender de los demás, siempre a
+              partir de acuerdos basados en el respeto, la tolerancia y la defensa de la vida.
+            </p>
+          </section>
+          <section>
+            <!-- Saludos de los pueblos -->
+            <!-- 1 Pueblo Wiwa -->
+            <h3>
+              Saludos de los pueblos
+            </h3>
+            <blockquote>
+
+              <h4>
+                Kawanyina Serankua ungunanba ne une.
+              </h4>
+              <p>
+                <em>Hermanos todos, Serankua guíe nuestros caminos.</em>
+              </p>
+              <cite>
+                Pueblo Wiwa - Organización Wiwa Golkushe Tayrona (Sierra Nevada de Santa Marta, Cesar y La Guajira)
+              </cite>
+            </blockquote>
+            <!-- 2 Pueblo Okaina Muinane Bora-->
+            <blockquote>
+
+              <h4>
+                Bienvenidos a compartir experiencias de memorias vivas, desde el conocimiento propio de la esencia del tabaco,
+                la coca y la yuca dulce para sanar, cuidar la vida, trabajar, multiplicarse y humanizarse.
+              </h4>
+              <cite>
+                Pueblos Uitoto-Mɨnɨka, Ɨvhuuza (Okaina), Gaigoomɨjo (Muinane) y Pɨɨneemuunáá (Bora).<br> Esencia del tabaco,
+                la coca y la yuca dulce de La Chorrera (Amazonas)
+              </cite>
+            </blockquote>
+            <!-- 3 Pueblo Bari-->
+            <!-- Unico saludo con audio  -->
+            <blockquote>
+
+              <h4>
+                El Pueblo Barí somos los habitantes originarios del Da-bocyi (Catatumbo), herederos y guardianes de la
+                creación de SABASEBA.
+              </h4>
+              <cite>
+                Pueblo Barí (Catatumbo, Norte de Santander y Venezuela)
+              </cite>
+              <p>Dale play al audio</p>
+              <!-- <div class="audio-player" id="2">
             <div id="play-btn" class="btn-reproducir">
-              <!-- <img class="animate-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/19_iconoPlay.svg"> -->
+              <img class="animate-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/19_iconoPlay.svg">
             </div>
             <div class="audio-wrapper" id="player-container" href="javascript:;">
               <audio id="player" class="reproductor-class" ontimeupdate="initProgressBar()">
-                <!-- <source src="multimedia/1_DisposicionalDialogo/1_saludo puebloss_bari.mp3" type="audio/mp3"> -->
+                <source src="multimedia/1_DisposicionalDialogo/1_saludo puebloss_bari.mp3" type="audio/mp3">
               </audio>
             </div>
             <div class="player-controls scrubber">
@@ -163,69 +102,60 @@
               </span>
               <br>
             </div>
-          </div>
-        </blockquote>
-        <!-- 4 Pueblo Nasa-->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            Weçx yuwekwe´ mantey fxizxenxi´s dxi´jas Üus kayatxijxa bakaçxteyuhpa pçukahmen.
-          </h4>
-          <p>
-            <em>Bienvenidos a conocer el camino de los antepasados y a recordar las vivencias desde el corazón
-              para nuestra pervivencia.</em>
-          </p>
-          <cite>
-            Pueblo Nasa (Norte del Cauca)
-          </cite>
-        </blockquote>
-        <!-- 5 Pueblo Awa-->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            Kuisha wat piannai kizpuspas Awá tuntu puran kana pian kamna.
-          </h4>
-          <p>
-            <em>Bienvenidos a conocer los procesos de lucha y resistencia de la Gran Familia Awá Binacional.</em>
-          </p>
-          <cite>
-            Gran Familia Awá Binacional (Nariño, Putumayo y Ecuador)
-          </cite>
-        </blockquote>
-        <!-- 6 Pueblo Pasto-->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            Bienvenidos a conocer la lucha de nuestros mayores por recuperar la historia. Vendrís a darte una vuelta.
-          </h4>
-          <cite>
-            Pueblo Pasto (Nariño)
-          </cite>
-        </blockquote>
-        <!-- 7 Pueblo Kamentsa-->
-        <blockquote>
-          <h3>
-            Saludos de los pueblos
-          </h3>
-          <h4>
-            Bosti Nÿetská pamillang s̈mojobekona jabuabuatmanam kem botaman Luar, benach tsatakochbuacham. Aslëpay
-            diospagrach.
-          </h4>
-          <p>
-            <em>Buenos días a todos, bienvenidos a conocer el territorio, camino de resistencia. Muchas gracias.</em>
-          </p>
-          <cite>
-            Pueblo Kamënts̈á (Valle del Sibundoy, Putumayo)
-          </cite>
-        </blockquote>
-        <!-- Mapa ubicacion pueblos indigenas  -->
-        <!-- <div class="container-fluid">
+          </div> -->
+            </blockquote>
+            <!-- 4 Pueblo Nasa-->
+            <blockquote>
+
+              <h4>
+                Weçx yuwekwe´ mantey fxizxenxi´s dxi´jas Üus kayatxijxa bakaçxteyuhpa pçukahmen.
+              </h4>
+              <p>
+                <em>Bienvenidos a conocer el camino de los antepasados y a recordar las vivencias desde el corazón
+                  para nuestra pervivencia.</em>
+              </p>
+              <cite>
+                Pueblo Nasa (Norte del Cauca)
+              </cite>
+            </blockquote>
+            <!-- 5 Pueblo Awa-->
+            <blockquote>
+              <h4>
+                Kuisha wat piannai kizpuspas Awá tuntu puran kana pian kamna.
+              </h4>
+              <p>
+                <em>Bienvenidos a conocer los procesos de lucha y resistencia de la Gran Familia Awá Binacional.</em>
+              </p>
+              <cite>
+                Gran Familia Awá Binacional (Nariño, Putumayo y Ecuador)
+              </cite>
+            </blockquote>
+            <!-- 6 Pueblo Pasto-->
+            <blockquote>
+              <h4>
+                Bienvenidos a conocer la lucha de nuestros mayores por recuperar la historia. Vendrís a darte una vuelta.
+              </h4>
+              <cite>
+                Pueblo Pasto (Nariño)
+              </cite>
+            </blockquote>
+            <!-- 7 Pueblo Kamentsa-->
+            <blockquote>
+              <h4>
+                Bosti Nÿetská pamillang s̈mojobekona jabuabuatmanam kem botaman Luar, benach tsatakochbuacham. Aslëpay
+                diospagrach.
+              </h4>
+              <p>
+                <em>Buenos días a todos, bienvenidos a conocer el territorio, camino de resistencia. Muchas gracias.</em>
+              </p>
+              <cite>
+                Pueblo Kamënts̈á (Valle del Sibundoy, Putumayo)
+              </cite>
+            </blockquote>
+          </section>
+
+          <!-- Mapa ubicacion pueblos indigenas  -->
+          <!-- <div class="container-fluid">
           <div class="parallax left-top" style="top: -100px; left: -150px;">
             <img src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/18_icono.svg" />
           </div>
@@ -309,30 +239,30 @@
             </div>
           </div>
         </div> -->
-        <!-- Cantos del pueblo de la chorrera  -->
-        <section class="curaduria">
-          <h3>
-            Cantos de los pueblos de La Chorrera
-          </h3>
-          <h4>
-            A través de los cantos, los Pueblos Uitoto-Mɨnɨka, Ɨvhuuza (Okaina), Gaigoomɨjo (Muinane) y
-            Pɨɨneemuunáá (Bora), esencia del tabaco, la coca y la yuca dulce de La Chorrera, nos invitan
-            a enfriar el corazón y endulzar la palabra como camino de sanación.
-          </h4>
-        </section>
-        <!--           -->
-        <section class="curaduria">
-          <h3>
-            Pueblo Ɨvhuuza (Okaina)
-          </h3>
-          <p>Dale play al audio</p>
-          <div class="audio-player" id="2">
+          <!-- Cantos del pueblo de la chorrera  -->
+          <section class="curaduria">
+            <h3>
+              Cantos de los pueblos de La Chorrera
+            </h3>
+            <h4>
+              A través de los cantos, los Pueblos Uitoto-Mɨnɨka, Ɨvhuuza (Okaina), Gaigoomɨjo (Muinane) y
+              Pɨɨneemuunáá (Bora), esencia del tabaco, la coca y la yuca dulce de La Chorrera, nos invitan
+              a enfriar el corazón y endulzar la palabra como camino de sanación.
+            </h4>
+          </section>
+          <!--           -->
+          <section class="curaduria">
+            <h3>
+              Pueblo Ɨvhuuza (Okaina)
+            </h3>
+            <p>Dale play al audio</p>
+            <!-- <div class="audio-player" id="2">
             <div id="play-btn" class="btn-reproducir">
-              <!-- <img class="animate-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/19_iconoPlay.svg"> -->
+              <img class="animate-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/19_iconoPlay.svg">
             </div>
             <div class="audio-wrapper" id="player-container" href="javascript:;">
               <audio id="player" class="reproductor-class" ontimeupdate="initProgressBar()">
-                <!-- <source src="./multimedia/1_DisposicionalDialogo/2_canto_pueblo_okaina.mp3" type="audio/mp3"> -->
+                <source src="./multimedia/1_DisposicionalDialogo/2_canto_pueblo_okaina.mp3" type="audio/mp3">
               </audio>
             </div>
             <div class="player-controls scrubber">
@@ -341,59 +271,59 @@
               </span>
               <br>
             </div>
-          </div>
-          <p>
-            Todo lo que en esta tierra hay es vida, ya sean los peces, los animales, entre medio está el hombre también.
-            Todo este mundo tiene una historia. Esa historia ha venido y va a seguir en adelante. En el transcurso de esta
-            historia han sucedido muchas cosas. Todas esas cosas que han venido sucediendo con nosotros como personas,
-            buenas y malas, desde nuestro principio cultural se trata de enfriar, de sanar, de darle un aire de vida para
-            que nosotros sigamos perviviendo más adelante.
-          </p>
-        </section>
-        <!--           -->
-        <section class="curaduria">
-          <h3>
-            Ijchóju. Canto de tomar caguana para sanar. Pueblo Pɨɨneemuunáá (Bora)
-          </h3>
-          <h4>
-            <em>De él viene esta purificación de la Panguana transformado en Dios padre que conjura el tabaco. De él se
-              sostiene la vida para endulzar a la humanidad.</em>
-          </h4>
-          <!-- Audio  -->
-          <div class="video-container">
+          </div> -->
+            <p>
+              Todo lo que en esta tierra hay es vida, ya sean los peces, los animales, entre medio está el hombre también.
+              Todo este mundo tiene una historia. Esa historia ha venido y va a seguir en adelante. En el transcurso de esta
+              historia han sucedido muchas cosas. Todas esas cosas que han venido sucediendo con nosotros como personas,
+              buenas y malas, desde nuestro principio cultural se trata de enfriar, de sanar, de darle un aire de vida para
+              que nosotros sigamos perviviendo más adelante.
+            </p>
+          </section>
+          <!--           -->
+          <section class="curaduria">
+            <h3>
+              Ijchóju. Canto de tomar caguana para sanar. Pueblo Pɨɨneemuunáá (Bora)
+            </h3>
+            <h4>
+              <em>De él viene esta purificación de la Panguana transformado en Dios padre que conjura el tabaco. De él se
+                sostiene la vida para endulzar a la humanidad.</em>
+            </h4>
+            <!-- Audio  -->
+            <!-- <div class="video-container">
             <iframe src="https://www.youtube.com/embed/gkhW1lfW0wU" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <cite>
-            Video realizado por el pueblo Pɨɨneemuunáá (Bora). La Chorrera, Amazonas. 2021.
-          </cite>
-          <p>
-            Milenariamente en el pueblo Bora siempre hemos tenido espacios de sanación, de curación, de bendición. Ese
-            canto se refiere a un pajarito que está en el monte, es una panguanita bien pequeñita, se escucha en toda
-            la selva de nuestro resguardo. Dice que por medio del tabaco el abuelo cura y con ese tabaco él bendice
-            todo lo que es la cosmogonía para el bien de la humanidad y del mundo.
-          </p>
-          <p>
-            Desde la concepción de nosotros los Boras, el tema de los crímenes no tiene reparación. La tradición de
-            nosotros dice que un crimen no se paga ni con un maletado de ambil, ni con un kilo de coca. Pero sí
-            podemos armonizarlo, darle ánimo a la vida para continuar porque la vida sigue, la vida no termina ahí.
-            Necesitamos una palabra de aliento.
-          </p>
-        </section>
-        <!--           -->
-        <section class="curaduria">
-          <h3>
-            Pueblo Gaigoomɨjo (Muinane)
-          </h3>
-          <p>Dale play al audio</p>
-          <!-- Audio  -->
-          <div class="audio-player" id="2">
+          </div> -->
+            <cite>
+              Video realizado por el pueblo Pɨɨneemuunáá (Bora). La Chorrera, Amazonas. 2021.
+            </cite>
+            <p>
+              Milenariamente en el pueblo Bora siempre hemos tenido espacios de sanación, de curación, de bendición. Ese
+              canto se refiere a un pajarito que está en el monte, es una panguanita bien pequeñita, se escucha en toda
+              la selva de nuestro resguardo. Dice que por medio del tabaco el abuelo cura y con ese tabaco él bendice
+              todo lo que es la cosmogonía para el bien de la humanidad y del mundo.
+            </p>
+            <p>
+              Desde la concepción de nosotros los Boras, el tema de los crímenes no tiene reparación. La tradición de
+              nosotros dice que un crimen no se paga ni con un maletado de ambil, ni con un kilo de coca. Pero sí
+              podemos armonizarlo, darle ánimo a la vida para continuar porque la vida sigue, la vida no termina ahí.
+              Necesitamos una palabra de aliento.
+            </p>
+          </section>
+          <!--           -->
+          <section class="curaduria">
+            <h3>
+              Pueblo Gaigoomɨjo (Muinane)
+            </h3>
+            <p>Dale play al audio</p>
+            <!-- Audio  -->
+            <!-- <div class="audio-player" id="2">
             <div id="play-btn" class="btn-reproducir">
-              <!-- <img class="animate-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/19_iconoPlay.svg"> -->
+              <img class="animate-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/19_iconoPlay.svg">
             </div>
             <div class="audio-wrapper" id="player-container" href="javascript:;">
               <audio id="player" class="reproductor-class" ontimeupdate="initProgressBar()">
-                <!-- <source src="multimedia/1_DisposicionalDialogo/3_canto_pueblo_Muinane.mp3" type="audio/mp3"> -->
+                <source src="multimedia/1_DisposicionalDialogo/3_canto_pueblo_Muinane.mp3" type="audio/mp3">
               </audio>
             </div>
             <div class="player-controls scrubber">
@@ -402,120 +332,137 @@
               </span>
               <br>
             </div>
-          </div>
-          <p>
-            Es un canto de purificación. Un niño nace con pecado original, por ejemplo, nosotros lo cantamos en ese
-            momento, en un bautizo. El canto dice escuchen, si no tuviéramos a los abuelos de vida, el hombre blanco ya
-            nos hubiera terminado. Gracias a la lucha, al poder y a la resistencia de nuestros abuelos que nos dieron la
-            yerba fría, para endulzar y enfriar.
-          </p>
-        </section>
-        <section class="curaduria">
-          <h3>
-            La memoria viva. Canto Pueblo Uitoto-Mɨnɨka
-          </h3>
-          <div class="video-container">
+          </div> -->
+            <p>
+              Es un canto de purificación. Un niño nace con pecado original, por ejemplo, nosotros lo cantamos en ese
+              momento, en un bautizo. El canto dice escuchen, si no tuviéramos a los abuelos de vida, el hombre blanco ya
+              nos hubiera terminado. Gracias a la lucha, al poder y a la resistencia de nuestros abuelos que nos dieron la
+              yerba fría, para endulzar y enfriar.
+            </p>
+          </section>
+          <section class="curaduria">
+            <h3>
+              La memoria viva. Canto Pueblo Uitoto-Mɨnɨka
+            </h3>
+            <!-- <div class="video-container">
             <iframe src="https://www.youtube.com/embed/bB9OukkWDJg" title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <p>
-            Vamos a resaltar la esencia viva del tabaco, del mambe, de la yuca dulce y de los frutales. Ahí está la
-            memoria, está impregnada.
-          </p>
-          <p>
-            Este es un mensaje para la humanidad, la sanación como pueblo indígena lo estamos haciendo y lo seguiremos
-            haciendo, pero las instancias nos tienen que escuchar, tienen que enfriar, tienen que ablandar esos
-            corazones. Este es un grito, no para nosotros que somos un pueblo unido. Por este medio vamos a reflejar la
-            esencia de lo que somos y lo que seremos, para que desde ese vientre de la madre naturaleza, que está herida
-            y somos sus hijos, proclamemos un mensaje que se nos escuche. Aquí vamos a hacer valer los principios de
-            nosotros como pueblos indígenas. Este es un rezo, es un mandato que compartimos de manera espiritual.
-          </p>
-        </section>
-        <!-- visualizaciones de datos   -->
-        <section class="curaduria">
-          <h3>
-            Hechos violentos contra pueblos indígenas.
-          </h3>
-          <h4>
-            […] En ese sentido tengo que decirles que el conflicto armado en Colombia ha sido en los Pueblos Indígenas
-            tan grave como invisible y muchas veces invisibilizado […] Además, porque el conflicto no solamente se puede
-            resumir en términos de la afectación física, sino de la afectación cultural, territorial, política,
-            organizativa, social ¿Cierto? […] Hoy tenemos muchos territorios, por ejemplo, que son sitios sagrados que
-            siguen militarizados por la fuerza pública, por los actores armados. Autoridades tradicionales que fueron
-            asesinadas. Hay un impacto realmente muy fuerte que va a requerir de mucho tiempo para poder sanar, poder
-            curar; con esto buscamos recomponer el tejido social. Además, aunado a esto ha habido un despojo
-            territorial. Los indígenas en Colombia hemos sido afectados de manera severa por el despojo de los
-            territorios ancestrales […]
-          </h4>
-          <cite>
-            Palabras de Luís Fernando Arias en el encuentro con los representantes de la Comisión de la Verdad de
-            Canadá. Bogotá, diciembre de 2017.
-          </cite>
-        </section>
-        <!-- visualizaciones D3   -->
-        <div class="curaduria">
-          <button class="btn btn-success mb-2" type="button" data-toggle="collapse" data-target="#viewStat"
-            aria-expanded="false" aria-controls="viewStat">
-            <!-- <img src="multimedia/icono_INTE_orange.svg"> Explora los datos -->
-          </button>
-
-          <div class="collapsing" id="viewStat">
-            <br>
-            <!-- <img src="multimedia/Icono_bar-chart.svg"> Cantidad de hechos violentos vs período de tiempo -->
-            <div class="divider"></div>
-            <div class="row animate-in">
-              <div class="col-md-3">
-                <div id="chart1"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart2"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart3"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart4"></div>
-              </div>
-            </div>
-            <div class="row animate-in">
-              <div class="col-md-3">
-                <div id="chart5"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart6"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart7"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart8"></div>
-              </div>
-            </div>
-            <div class="row animate-in">
-              <div class="col-md-3">
-                <div id="chart9"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart10"></div>
-              </div>
-              <div class="col-md-3">
-                <div id="chart11"></div>
-              </div>
-              <div class="col-md-3">
-              </div>
-            </div>
+          </div> -->
+            <p>
+              Vamos a resaltar la esencia viva del tabaco, del mambe, de la yuca dulce y de los frutales. Ahí está la
+              memoria, está impregnada.
+            </p>
+            <p>
+              Este es un mensaje para la humanidad, la sanación como pueblo indígena lo estamos haciendo y lo seguiremos
+              haciendo, pero las instancias nos tienen que escuchar, tienen que enfriar, tienen que ablandar esos
+              corazones. Este es un grito, no para nosotros que somos un pueblo unido. Por este medio vamos a reflejar la
+              esencia de lo que somos y lo que seremos, para que desde ese vientre de la madre naturaleza, que está herida
+              y somos sus hijos, proclamemos un mensaje que se nos escuche. Aquí vamos a hacer valer los principios de
+              nosotros como pueblos indígenas. Este es un rezo, es un mandato que compartimos de manera espiritual.
+            </p>
+          </section>
+          <!-- visualizaciones de datos   -->
+          <section class="curaduria">
+            <h3>
+              Hechos violentos contra pueblos indígenas.
+            </h3>
+            <h4>
+              […] En ese sentido tengo que decirles que el conflicto armado en Colombia ha sido en los Pueblos Indígenas
+              tan grave como invisible y muchas veces invisibilizado […] Además, porque el conflicto no solamente se puede
+              resumir en términos de la afectación física, sino de la afectación cultural, territorial, política,
+              organizativa, social ¿Cierto? […] Hoy tenemos muchos territorios, por ejemplo, que son sitios sagrados que
+              siguen militarizados por la fuerza pública, por los actores armados. Autoridades tradicionales que fueron
+              asesinadas. Hay un impacto realmente muy fuerte que va a requerir de mucho tiempo para poder sanar, poder
+              curar; con esto buscamos recomponer el tejido social. Además, aunado a esto ha habido un despojo
+              territorial. Los indígenas en Colombia hemos sido afectados de manera severa por el despojo de los
+              territorios ancestrales […]
+            </h4>
             <cite>
-              Fuente: elaboración del equipo de investigación del informe Tiempos de vida y muerte.
-              Memorias y luchas de los pueblos indígenas en Colombia (CNMH-ONIC, 2019), a partir de
-              los datos del Observatorio de Derechos de los Pueblos Indígenas de la ONIC, sus
-              organizaciones filiales y del Observatorio de Memoria y Conflicto del CNMH.
+              Palabras de Luís Fernando Arias en el encuentro con los representantes de la Comisión de la Verdad de
+              Canadá. Bogotá, diciembre de 2017.
             </cite>
+          </section>
+          <!-- visualizaciones D3   -->
+          <div class="curaduria">
+            <!-- <button class="btn btn-success mb-2" type="button" data-toggle="collapse" data-target="#viewStat"
+            aria-expanded="false" aria-controls="viewStat">
+            <img src="multimedia/icono_INTE_orange.svg"> Explora los datos
+          </button> -->
+
+            <div class="collapsing" id="viewStat">
+              <br>
+              <!-- <img src="multimedia/Icono_bar-chart.svg"> Cantidad de hechos violentos vs período de tiempo -->
+              <div class="divider"></div>
+              <div class="row animate-in">
+                <div class="col-md-3">
+                  <div id="chart1"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart2"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart3"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart4"></div>
+                </div>
+              </div>
+              <div class="row animate-in">
+                <div class="col-md-3">
+                  <div id="chart5"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart6"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart7"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart8"></div>
+                </div>
+              </div>
+              <div class="row animate-in">
+                <div class="col-md-3">
+                  <div id="chart9"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart10"></div>
+                </div>
+                <div class="col-md-3">
+                  <div id="chart11"></div>
+                </div>
+                <div class="col-md-3">
+                </div>
+              </div>
+              <cite>
+                Fuente: elaboración del equipo de investigación del informe Tiempos de vida y muerte.
+                Memorias y luchas de los pueblos indígenas en Colombia (CNMH-ONIC, 2019), a partir de
+                los datos del Observatorio de Derechos de los Pueblos Indígenas de la ONIC, sus
+                organizaciones filiales y del Observatorio de Memoria y Conflicto del CNMH.
+              </cite>
+            </div>
           </div>
+
+          <include src="./partials/footer.html"></include>
+
         </div>
+
       </div>
-      <div class="terrain">
+
+      <div class="terrain next">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <defs>
+            <clipPath id="clip-dialogo">
+              <path id="dialogoMask" fill="#fff" d="M52.3,-13.7C61.1,10.3,57.1,41.7,39.7,54.2C22.4,66.7,-8.4,60.3,-30.2,43.9C-52,27.5,-64.9,1.1,-58.4,-19.6C-51.9,-40.4,-25.9,-55.5,-2.1,-54.8C21.7,-54.1,43.4,-37.6,52.3,-13.7Z" />
+            </clipPath>
+          </defs>
+        </svg>
+
         <div class="terrainIn"></div>
+
       </div>
+
     </main>
 
   </body>

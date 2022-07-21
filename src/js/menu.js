@@ -1,5 +1,5 @@
-// animations
-// GSAP https://greensock.com/docs/
+//--animations
+//--GSAP https://greensock.com/docs/
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Observer } from 'gsap/Observer';
@@ -7,45 +7,66 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { Draggable } from 'gsap/Draggable';
 gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin, Draggable);
 
-// smooth transitions
-// BarbaJS https://barba.js.org/
+//--smooth transitions
+//--BarbaJS https://barba.js.org/
 import barba from '@barba/core';
 
-// smooth scroll
-// Locomotive Scroll https://github.com/locomotivemtl/locomotive-scroll
+//--smooth scroll
+//--Locomotive Scroll https://github.com/locomotivemtl/locomotive-scroll
 import LocomotiveScroll from 'locomotive-scroll';
 
-// locomotive data
-// import scrolls from './scroll';
+//--scripts
+//--locomotive data
+//--import scrolls from './scroll';
+
+//--array formas(blobs) para las transiciones
+import { blobRandom } from './blobs.js';
 
 //
 const select = (e) => document.querySelector(e);
 const selectAll = (e) => document.querySelectorAll(e);
-let ulWidth = document.querySelector('#menuBox ul').clientWidth;
-let ulHeight = document.querySelector('#menuBox ul').clientHeight;
-const scrollContainer = document.querySelector('#content');
+const create = (e) => document.createElement(e);
+let ulWidth = select('#menuBox ul').clientWidth;
+let ulHeight = select('#menuBox ul').clientHeight;
+let maskX = `${gsap.utils.random(10, 90, 1)}vw`;
+let maskY = `${gsap.utils.random(10, 90, 1)}vh`;
 let scroll;
 
-// Create menu
-const spanMenu = document.createElement('span');
-spanMenu.ariaHidden = 'true';
-spanMenu.classList.add(`trama${gsap.utils.random(1, 5, 1)}`);
-document.querySelector('#menu-toggle').appendChild(spanMenu);
-const iconMenu = document.createElement('i');
-iconMenu.ariaHidden = 'true';
-iconMenu.dataset.feather = 'x';
-document.querySelector('#menu-toggle').appendChild(iconMenu);
-const eye = document.createElement('span');
-const eyeIcon = document.createElement('i');
-eyeIcon.dataset.feather = 'eye';
-eye.appendChild(eyeIcon);
-document.querySelector('#menu-change').appendChild(eye);
-const eyeClose = document.createElement('span');
-document.querySelector('#menu-change').appendChild(eyeClose);
+//
+//--Create menu
+//
+//--
+const menuText = create('span');
+menuText.classList.add('menuText');
+const textMenu = document.createTextNode('menú');
+menuText.appendChild(textMenu);
+select('#menu-toggle').appendChild(menuText);
+//--
+const iconClose = create('i');
+iconClose.ariaHidden = 'true';
+iconClose.setAttribute('icon-name', 'x');
+select('#menu-toggle').appendChild(iconClose);
+//--
+const tramaMenu = create('div');
+tramaMenu.ariaHidden = 'true';
+tramaMenu.classList.add(`trama${gsap.utils.random(1, 5, 1)}`);
+select('#menu-toggle').appendChild(tramaMenu);
+//--
+const eye = create('span');
 eye.classList.add('eye');
+const eyeIcon = create('i');
+eyeIcon.setAttribute('icon-name', 'eye');
+eye.appendChild(eyeIcon);
+select('#menu-change').appendChild(eye);
+//--
+const eyeClose = create('span');
+select('#menu-change').appendChild(eyeClose);
 eyeClose.classList.add('eyeClose');
+//--
 let [backDivs, descripciones, pos, xRandom, yRandom] = [[], [], [], [], []];
+//--
 const vel = [-1, -2, -3, -4, 1, 2, 3, 4, 5, 6, 7, 8];
+//--
 const posRandom = () => {
   pos = [
     {
@@ -70,6 +91,7 @@ const posRandom = () => {
     },
   ];
 };
+//--
 let dir = [
   { dirSi: '-=', dirNo: '+=' },
   { dirSi: '+=', dirNo: '-=' },
@@ -82,52 +104,51 @@ let dir = [
   { dirSi: '-=', dirNo: '+=' },
   { dirSi: '+=', dirNo: '-=' },
 ];
-
-const caminos = Array.from(document.querySelectorAll('#menuBox ul li'));
+//--
+const caminos = Array.from(selectAll('#menuBox ul li'));
 caminos.forEach((camino) => {
   camino.classList.add('disable');
-  const arrowDiv = document.createElement('div');
+  const arrowDiv = create('div');
   arrowDiv.ariaHidden = 'true';
   arrowDiv.classList.add('arrow');
-  const arrowIcon = document.createElement('i');
+  const arrowIcon = create('i');
   arrowIcon.ariaHidden = 'true';
   arrowIcon.dataset.feather = 'arrow-right';
   camino.querySelector('.name').appendChild(arrowDiv);
   arrowDiv.appendChild(arrowIcon);
-
-  const trama = document.createElement('div');
+  //--
+  const trama = create('div');
   trama.ariaHidden = 'true';
   trama.classList.add('trama');
   camino.querySelector('a').appendChild(trama);
-
-  const descripcionDiv = document.createElement('div');
+  //--
+  const descripcionDiv = create('div');
   descripcionDiv.innerHTML = camino.querySelector('.lead').innerHTML;
-  document.querySelector('#descripciones').appendChild(descripcionDiv);
+  select('#descripciones').appendChild(descripcionDiv);
   descripciones.push(descripcionDiv);
-
-  const backImgDiv = document.createElement('div');
-  document.querySelector('#backImg').appendChild(backImgDiv);
+  //--
+  const backImgDiv = create('div');
+  select('#backImg').appendChild(backImgDiv);
   backDivs.push(backImgDiv);
 });
-
-const names = Array.from(document.querySelectorAll('#menuBox .name'));
-//const arrows = Array.from(document.querySelectorAll("#menuBox .arrow .feather"));
-const caminoBox = Array.from(document.querySelectorAll('#menuBox .trama'));
+//--
+const names = Array.from(selectAll('#menuBox .name'));
+// const arrows = Array.from(selectAll("#menuBox .arrow .feather"));
+const caminoBox = Array.from(selectAll('#menuBox .trama'));
 gsap.set(caminoBox, { scale: 0.4, transformOrigin: '50% 50%', opacity: 0 });
 
-// Start menu
-const menuToggle = document.querySelector('#menu-toggle');
-const body = document.querySelector('body');
-//const terrain = document.querySelector(".terrain");
-const terrainIn = document.querySelector('.terrainIn');
-const textMenu = document.querySelector('#text-menu');
-const menu = document.querySelector('#menuBox');
-const menuChange = document.querySelector('#menu-change');
+//--Start menu
+const menuToggle = select('#menu-toggle');
+const body = select('body');
+//const terrain = select(".terrain");
+const terrainIn = select('.terrainIn');
+const menu = select('#menuBox');
+const menuChange = select('#menu-change');
 let mainDiv, caminoSel;
 
 gsap.set(caminos, { xPercent: -50, yPercent: -50 });
 gsap.set(menuChange, {
-  top: document.querySelector('#headerBar').offsetHeight + 20,
+  top: select('#headerBar').offsetHeight + 20,
 });
 
 caminos.forEach((camino, i) => {
@@ -239,7 +260,8 @@ caminos.forEach((camino, i) => {
   camino.addEventListener(
     'click',
     () => {
-      caminoSel = this;
+      caminoSel = camino;
+      // console.log(caminoSel);
     },
     false
   );
@@ -260,7 +282,6 @@ const parall = (e) => {
 
 const menuClose = (ejeSel) => {
   return new Promise((done) => {
-    let mainNext = mainDiv;
     menu.ariaHidden = 'true';
     menuToggle.ariaExpanded = 'false';
     document.removeEventListener('mousemove', parall);
@@ -270,14 +291,13 @@ const menuClose = (ejeSel) => {
     gsap
       .timeline({
         onComplete: () => {
-          scroll.start();
           menuToggle.classList.remove('disable');
           body.classList.remove('menuOpen');
-          textMenu.classList.remove('hideText');
           if (!ejeSel) {
-            gsap.to(document.querySelector('#content'), {
+            gsap.to(document.querySelector('#contentIn'), {
               opacity: 1,
               duration: 0.8,
+              onComplete: () => scroll.start(),
             });
           }
           done();
@@ -321,16 +341,10 @@ const menuClose = (ejeSel) => {
           delay: 0.3,
           onComplete: () => {
             if (ejeSel) {
-              let ejeSelX = `${Math.round(
-                ejeSel.getBoundingClientRect().x +
-                  ejeSelgetBoundingClientRec().width / 2
-              )}px`;
-              let ejeSelY = `${Math.round(
-                ejeSel.getBoundingClientRect().y +
-                  ejeSelgetBoundingClientRec().height / 2
-              )}px`;
-              body.style.setProperty('--x', ejeSelX);
-              body.style.setProperty('--y', ejeSelY);
+              let rect = ejeSel.getBoundingClientRect();
+              maskX = `${Math.round(rect.x + rect.width / 2)}px`;
+              maskY = `${Math.round(rect.y + rect.height / 2)}px`;
+              console.log(`${maskX} - ${maskY}`);
             }
           },
         },
@@ -351,11 +365,7 @@ const menuClose = (ejeSel) => {
         caminoBox,
         { opacity: 0, duration: 0.9, ease: 'power2.inOut' },
         '-=1.5'
-      )
-      .add(function () {
-        mainNext.querySelector('.terrain').classList.add('nextTo');
-      })
-      .to({}, { duration: 1 });
+      );
   });
 };
 
@@ -399,8 +409,8 @@ const openMenu = (open) => {
   gsap.utils.shuffle(pos);
   gsap.utils.shuffle(dir);
   scaleTime = gsap.utils.random(2, 2.5, 0.1);
-  textMenu.classList.add('hideText');
-  gsap.to(document.querySelector('#content'), { opacity: 0, duration: 0.8 });
+  menuText.classList.add('hideText');
+  gsap.to(document.querySelector('#contentIn'), { opacity: 0, duration: 0.8 });
 
   const openM = gsap
     .timeline({
@@ -415,7 +425,15 @@ const openMenu = (open) => {
       },
     })
     .addLabel('terra')
-    .to(caminoBox, { opacity: 1, duration: 0.6, ease: 'power2.inOut' }, 'terra')
+    .to(
+      caminoBox,
+      {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.inOut',
+      },
+      'terra'
+    )
     .to(
       caminoBox,
       {
@@ -477,7 +495,7 @@ const openMenu = (open) => {
 
 const menuRotate = gsap
   .fromTo(
-    spanMenu,
+    tramaMenu,
     { rotation: 0 },
     {
       rotation: 360,
@@ -566,71 +584,74 @@ menuChange.addEventListener(
 //
 //
 
-const initPageTransitions = () => {
-  barba.hooks.before(() => {
-    select('html').classList.add('is-transitioning');
-  });
+initPageTransitions();
 
+function initPageTransitions() {
   barba.hooks.enter(() => {
     window.scrollTo(0, 0);
   });
-
   barba.hooks.after(() => {
-    select('html').classList.remove('is-transitioning');
     scroll.init();
   });
 
   barba.init({
-    sync: true,
-    timeout: 7000,
+    timeout: 5000,
     preventRunning: true,
     transitions: [
       {
-        once(data) {
-          initSmoothScroll(data.next.container);
-          gsap.fromTo(
-            data.next.container.querySelector('#content'),
-            { opacity: 0 },
-            { opacity: 1, duration: 1, delay: 0.5, ease: 'power2.out' }
-          );
-          initScript();
-          // scrolls(next.container);
+        name: 'once-transition',
+        sync: true,
+        once: ({ next }) => {
+          initSmoothScroll(next.container);
+          nextMask(next.container, next.namespace);
+          terrainParallax(next.container);
         },
-        async before(data) {
-          mainDiv = data.next.container;
-          data.next.container.querySelector('.terrain').classList.add('next');
-          // scrolls(data.next.container);
+        leave() {},
+        enter() {},
+      },
+      {
+        name: 'menu-transition',
+        sync: true,
+        from: {
+          custom: ({ trigger }) => {
+            return (
+              trigger.classList && trigger.classList.contains('menu-transition')
+            );
+          },
         },
-        async beforeLeave() {
+        async beforeLeave(data) {
           const done = this.async();
           await menuClose(caminoSel);
+          await nextMask(data.next.container, data.next.namespace);
+          data.current.container.remove();
           done();
         },
         leave() {},
-        async enter(data) {
-          gsap.fromTo(
-            data.next.container.querySelector('#content'),
-            { opacity: 0 },
-            { opacity: 1, duration: 1, ease: 'power3.out ' }
-          );
-          body.className = `${data.next.namespace}Body`;
-          data.next.container
-            .querySelector('.terrain')
-            .classList.remove('next', 'nextTo');
-          initScript();
-        },
-        async beforeEnter(data) {
+        beforeEnter: ({ next }) => {
           ScrollTrigger.getAll().forEach((t) => t.kill());
           scroll.destroy();
-          initSmoothScroll(data.next.container);
+          initSmoothScroll(next.container);
+        },
+        enter: ({ next }) => {
+          let scrollbar = document.querySelectorAll('.c-scrollbar');
+          if (scrollbar.length > 1) {
+            scrollbar[0].remove();
+          }
+          terrainParallax(next.container);
+        },
+        after: () => {
+          let scrollbar = document.querySelectorAll('.c-scrollbar');
+          if (scrollbar.length > 1) {
+            scrollbar[0].remove();
+          }
         },
       },
     ],
   });
 
-  const initSmoothScroll = (container) => {
+  function initSmoothScroll(box) {
     scroll = new LocomotiveScroll({
-      el: container.querySelector('[data-scroll-container]'),
+      el: box.querySelector('[data-scroll-container]'),
       smooth: true,
       getDirection: true,
     });
@@ -651,36 +672,98 @@ const initPageTransitions = () => {
           height: window.innerHeight,
         };
       },
-      pinType: container.querySelector('[data-scroll-container]').style
-        .transform
+      pinType: box.querySelector('[data-scroll-container]').style.transform
         ? 'transform'
         : 'fixed',
     });
 
-    const scrollbar = selectAll('.c-scrollbar');
-    if (scrollbar.length > 1) {
-      scrollbar[0].remove();
-    }
-
     ScrollTrigger.addEventListener('refresh', () => scroll.update());
     ScrollTrigger.refresh();
-  };
-};
-initPageTransitions();
+  }
+}
 
-const initScript = () => {
-  terrainParallax();
-};
-
-const terrainParallax = () => {
-  gsap.to('.terrain', {
-    y: '-40vh',
+function terrainParallax(box) {
+  //--
+  let terreno = box.querySelector('.terrain');
+  let triggerBox = box.querySelector('#content');
+  gsap.to(terreno, {
+    y: '-80vh',
+    ease: 'linear',
     scrollTrigger: {
-      scroller: scrollContainer,
-      trigger: '#content',
+      scroller: triggerBox,
+      trigger: triggerBox,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: 0.2,
+      scrub: 0.5,
     },
   });
-};
+}
+
+function nextMask(box, name) {
+  return new Promise((done) => {
+    //--
+    let terrainMask = box.querySelector(`#${name}Mask`);
+    //--
+    gsap
+      .timeline({
+        onComplete: () => done(),
+      })
+      .set(terrainMask, {
+        scale: 0.5,
+        x: maskX,
+        y: maskY,
+        transformOrigin: 'center center',
+        attr: {
+          d: blobRandom[0],
+        },
+      })
+      .to(box.querySelector('.terrain'), {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power1.in',
+        delay: 1,
+      })
+      .to(terrainMask, {
+        scale: 1.5,
+        x: maskX,
+        y: maskY,
+        transformOrigin: 'center center',
+        attr: {
+          d: blobRandom[1],
+        },
+        duration: 1,
+        ease: 'power1.in',
+      })
+      .to(terrainMask, {
+        scale: 3,
+        x: maskX,
+        y: maskY,
+        transformOrigin: 'center center',
+        attr: {
+          d: blobRandom[2],
+        },
+        duration: 1,
+        ease: 'power1.out',
+      })
+      .to(terrainMask, {
+        scale: 12,
+        x: '50vw',
+        y: '50vh',
+        transformOrigin: 'center center',
+        attr: {
+          d: blobRandom[3],
+        },
+        duration: 0.8,
+        ease: 'power1.in',
+        onComplete: () => {
+          box.querySelector('.terrain').classList.remove('next');
+          body.className = `${name}Body`;
+          gsap.fromTo(
+            box.querySelector('#contentIn'),
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5, delay: 0.5 }
+          );
+        },
+      });
+  });
+}

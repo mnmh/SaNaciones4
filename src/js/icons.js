@@ -1,12 +1,14 @@
-// icons
-
 // Lucide icons
 // https://github.com/lucide-icons/lucide
-// https://iconer.app/lucide/
-
-import { createIcons, CloudLightning, CloudHail, Sun } from 'lucide';
+// view: https://iconer.app/lucide/
+import { createIcons, X, Eye } from 'lucide';
 
 createIcons({
-  attrs: { class: ['icon'] },
-  icons: { CloudLightning, CloudHail, Sun },
+  icons: {
+    X,
+    Eye,
+  },
+  attrs: {
+    class: ['icon'],
+  },
 });
