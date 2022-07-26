@@ -1,124 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SaNaciones - Caminos de resistencia</title>
-    <meta name="description" content="SaNaciones" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="www.museodememoriahistorica.gov.co" />
-    <script type="module" defer src="js/main.js"></script>
-  </head>
+  <include src="./partials/head.html">
+    { "title": "Naciones - SaNaciones - Caminos de resistencia" }
+  </include>
 
   <body data-barba="wrapper">
 
-    <header class="menu-banner">
-      <div id="headerBar">
-        <a href="./index.html" aria-label="Ir al inicio" id="logo">
-          <img src="./images/sanaciones-logo.svg" aria-hidden="true">
-        </a>
-      </div>
-      <button id="menu-toggle" aria-label="Show Navigation Menu" aria-expanded="false" aria-controls="menu" tabindex="0"></button>
-    </header>
+    <include src="./partials/header.html"></include>
 
-    <nav id="menuBox" aria-hidden="true" aria-labelledby="menu-toggle" role="navigation">
-      <div id="menu-change" aria-hidden="true"></div>
+    <div data-barba="container" data-barba-namespace="naciones" class="container naciones">
 
-      <ul>
+      <div data-scroll-container>
 
-        <li>
-          <a href="./dialogo.html" aria-label="Ir al camino disposición al diálogo">
-            <div class="name">
-              <div class="title">Disposición<br>al diálogo</div>
-              <div class="lead">En todos los ámbitos de la vida y esencial en sus procesos de sanación</div>
-            </div>
-          </a>
-        </li>
+        <div class="content">
 
-        <li>
-          <a href="./territorios.html" aria-label="Ir al camino territorios">
-            <div class="name">
-              <div class="title">Territorios</div>
-              <div class="lead">Conectan con lo sagrado y permiten ver las huellas que ha dejado el conflicto armado</div>
-            </div>
-          </a>
-        </li>
+          <main>
 
-        <li>
-          <a href="./resistencias.html" aria-label="Ir al camino resistencias históricas de los pueblos indígenas">
-            <div class="name">
-              <div class="title">Resistencias<br>históricas</div>
-              <div class="lead">Reinterpretan su memoria desde la palabra de vida y conocimiento</div>
-            </div>
-          </a>
-        </li>
+            <h1>SaNaciones</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum asperiores sint, ex alias tenetur animi
+              officiis optio cumque sequi facere assumenda recusandae quos
+              <!-- <a class="cta prueba" href="dialogo.html">Disposición al diálogo</a> --> nesciunt nihil eaque iusto saepe
+              accusantium illum?
+            </p>
+            <p>Culpa hic officia voluptates repellat quibusdam tempora quidem nesciunt quisquam minima perferendis quam
+              molestiae blanditiis architecto quos sapiente, deserunt ab repudiandae dolorem ratione eius error dolor?
+              Nesciunt deleniti dignissimos et.</p>
+            <p>Tenetur mollitia libero fugiat est. Iure, odio! Distinctio incidunt inventore molestias debitis omnis? Dolor
+              dignissimos praesentium nihil? Odio beatae debitis unde! Vel impedit ipsam quia libero quae, omnis atque saepe?
+            </p>
+            <p>Cupiditate harum numquam odio doloremque rerum incidunt, in soluta corporis dignissimos voluptas quia suscipit,
+              quaerat consequuntur minima placeat cumque eius corrupti fugiat quod at iusto animi, possimus ea? Impedit, nemo.
+            </p>
+            <p>Impedit adipisci aspernatur ea maiores officia cum voluptates recusandae dolore quibusdam temporibus sint, odio
+              doloribus, blanditiis saepe? Quasi amet, quidem praesentium voluptas tempore nisi quam provident soluta nulla,
+              eaque obcaecati?</p>
+            <p>Minima reiciendis veniam, quam, id dignissimos nesciunt delectus corrupti facilis officia perspiciatis tempore
+              ex velit alias, maxime fuga repellat! Pariatur libero temporibus quae amet veritatis, expedita unde rem aliquam.
+              Velit.</p>
+            <p>Ab eaque dicta earum quod illo voluptatum temporibus excepturi itaque, non dolor, unde incidunt. Dolor impedit
+              deserunt in possimus cupiditate voluptates maiores expedita maxime autem repudiandae. Rem consectetur error
+              atque.</p>
+            <p>Esse, delectus maiores quia maxime dolor repellat dolore nesciunt laboriosam reiciendis ea quam modi laborum
+              voluptatum labore reprehenderit est vel et tempora nostrum aperiam sunt a distinctio molestiae ut! Modi.</p>
 
-        <li>
-          <a href="./fuerza.html" aria-label="Ir al camino la fuerza de lo colectivo">
-            <div class="name">
-              <div class="title">La fuerza de<br>lo colectivo</div>
-              <div class="lead">Unidos son más fuertes para enfrentar la violencia de actores armados</div>
-            </div>
-          </a>
-        </li>
+          </main>
 
-        <li>
-          <a href="./naciones.html" aria-label="Ir al camino Naciones">
-            <div class="name">
-              <div class="title">Naciones</div>
-              <div class="lead">Involucra la cosmovisión, la autonomía y la autodeterminación</div>
-            </div>
-          </a>
-        </li>
+          <include src="./partials/footer.html"></include>
 
-      </ul>
-
-      <div id="descripciones" aria-hidden="true"></div>
-      <div id="backImg" aria-hidden="true"></div>
-
-    </nav>
-
-    <main data-barba="container" data-barba-namespace="naciones" class="naciones">
-
-      <div id="content" data-scroll-container>
-        <div id="contentIn">
-          <h1>SaNaciones</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum asperiores sint, ex alias tenetur animi
-            officiis optio cumque sequi facere assumenda recusandae quos
-            <!-- <a class="cta prueba" href="dialogo.html">Disposición al diálogo</a> --> nesciunt nihil eaque iusto saepe
-            accusantium illum?
-          </p>
-          <p>Culpa hic officia voluptates repellat quibusdam tempora quidem nesciunt quisquam minima perferendis quam
-            molestiae blanditiis architecto quos sapiente, deserunt ab repudiandae dolorem ratione eius error dolor?
-            Nesciunt deleniti dignissimos et.</p>
-          <p>Tenetur mollitia libero fugiat est. Iure, odio! Distinctio incidunt inventore molestias debitis omnis? Dolor
-            dignissimos praesentium nihil? Odio beatae debitis unde! Vel impedit ipsam quia libero quae, omnis atque saepe?
-          </p>
-          <p>Cupiditate harum numquam odio doloremque rerum incidunt, in soluta corporis dignissimos voluptas quia suscipit,
-            quaerat consequuntur minima placeat cumque eius corrupti fugiat quod at iusto animi, possimus ea? Impedit, nemo.
-          </p>
-          <p>Impedit adipisci aspernatur ea maiores officia cum voluptates recusandae dolore quibusdam temporibus sint, odio
-            doloribus, blanditiis saepe? Quasi amet, quidem praesentium voluptas tempore nisi quam provident soluta nulla,
-            eaque obcaecati?</p>
-          <p>Minima reiciendis veniam, quam, id dignissimos nesciunt delectus corrupti facilis officia perspiciatis tempore
-            ex velit alias, maxime fuga repellat! Pariatur libero temporibus quae amet veritatis, expedita unde rem aliquam.
-            Velit.</p>
-          <p>Ab eaque dicta earum quod illo voluptatum temporibus excepturi itaque, non dolor, unde incidunt. Dolor impedit
-            deserunt in possimus cupiditate voluptates maiores expedita maxime autem repudiandae. Rem consectetur error
-            atque.</p>
-          <p>Esse, delectus maiores quia maxime dolor repellat dolore nesciunt laboriosam reiciendis ea quam modi laborum
-            voluptatum labore reprehenderit est vel et tempora nostrum aperiam sunt a distinctio molestiae ut! Modi.</p>
         </div>
+
       </div>
 
-      <div class="terrain">
+      <div aria-hidden="true" class="terrain next">
 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
           <defs>
-            <clipPath id="clip-path">
-              <path id="terrainMask" fill="#fff" d="M44.1,-58C54,-44.3,56.6,-27.4,56.7,-12.2C56.7,3,54.2,16.4,48.7,30C43.1,43.6,34.5,57.3,23.2,59.7C11.9,62.1,-2.1,53.1,-20.2,49.2C-38.3,45.4,-60.5,46.5,-70.6,36.9C-80.8,27.3,-78.9,6.9,-72.9,-10.4C-66.9,-27.6,-56.8,-41.7,-44,-54.8C-31.2,-67.9,-15.6,-80.1,0.8,-81C17.1,-81.9,34.3,-71.6,44.1,-58Z" />
+            <clipPath id="clip-naciones">
+              <path id="nacionesMask" fill="#fff" d="M52.3,-13.7C61.1,10.3,57.1,41.7,39.7,54.2C22.4,66.7,-8.4,60.3,-30.2,43.9C-52,27.5,-64.9,1.1,-58.4,-19.6C-51.9,-40.4,-25.9,-55.5,-2.1,-54.8C21.7,-54.1,43.4,-37.6,52.3,-13.7Z" />
             </clipPath>
           </defs>
         </svg>
@@ -127,7 +66,7 @@
 
       </div>
 
-    </main>
+    </div>
 
   </body>
 

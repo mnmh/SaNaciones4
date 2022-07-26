@@ -15,5 +15,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 //
 // menu
 import './menu.js';
+// transitions
+import './transition-barba.js';
 // icons
 import './icons.js';

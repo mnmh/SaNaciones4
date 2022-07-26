@@ -70,19 +70,19 @@ header {
         pointer-events: none;
       }
 
-      div {
+      #menuTrama {
         z-index: 10;
         position: absolute;
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        background-color: white;
         opacity: 1;
         transform-origin: center;
         pointer-events: none;
 
         @for $i from 1 through 5 {
           &.trama#{$i} {
+            background-color: white;
             mask-image: url("../images/menu-trama-#{$i}.svg");
             -webkit-mask-image: url("../images/menu-trama-#{$i}.svg");
           }
@@ -101,7 +101,7 @@ header {
       }
 
       .menuOpen & {
-        div {
+        #menuTrama {
           opacity: 0;
         }
 
