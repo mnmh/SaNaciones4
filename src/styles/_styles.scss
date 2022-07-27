@@ -51,16 +51,18 @@ section {
   flex-flow: column nowrap;
   padding: 0 20px;
   text-align: left;
-}
 
-article {
-  margin: auto;
-  width: fit-content;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-flow: column nowrap;
-  padding: 0 20px;
+  figure {
+    img {
+      width: 100%;
+      mask-image: url("../images/clipImg.svg");
+      -webkit-mask-image: url("../images/clipImg.svg");
+      -webkit-mask-size: auto;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: bottom;
+    }
+
+  }
 }
 
 .container {
