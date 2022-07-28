@@ -1,4 +1,4 @@
-//--GSAP https://greensock.com/docs/
+//--GSAP
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -9,6 +9,8 @@ import barba from '@barba/core';
 import { menuClose } from './menu-close.js';
 //--
 import { selectAll, newMask } from './variables.js';
+//-- mascara imágenes
+import { figureMask } from './figure-mask.js';
 //-- parallax terreno
 import { terrainParallax } from './scroll.js';
 //-- animación de la mascara del terreno
@@ -37,6 +39,7 @@ barba.init({
       sync: true,
       once: ({ next }) => {
         initSmoothScroll(next.container);
+        figureMask(next.container);
         terrainMask(next.container, next.namespace);
         terrainParallax(next.container);
       },
@@ -67,6 +70,7 @@ barba.init({
         initSmoothScroll(next.container);
       },
       enter: ({ next }) => {
+        figureMask(next.container);
         terrainParallax(next.container);
       },
       after: () => {

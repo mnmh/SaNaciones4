@@ -53,14 +53,15 @@ section {
   text-align: left;
 
   figure {
-    img {
+    div {
       width: 100%;
-      mask-image: url("../images/clipImg.svg");
-      -webkit-mask-image: url("../images/clipImg.svg");
-      -webkit-mask-size: auto;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: bottom;
+      // clip-path: url(#clip-figure);
+
+      img {
+        width: 100%;
+      }
     }
+
 
   }
 }
