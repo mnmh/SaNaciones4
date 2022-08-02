@@ -39,7 +39,7 @@ barba.init({
       sync: true,
       once: ({ next }) => {
         initSmoothScroll(next.container);
-        figureMask(next.container);
+        // figureMask(next.container);
         terrainMask(next.container, next.namespace);
         terrainParallax(next.container);
       },
@@ -70,7 +70,7 @@ barba.init({
         initSmoothScroll(next.container);
       },
       enter: ({ next }) => {
-        figureMask(next.container);
+        // figureMask(next.container);
         terrainParallax(next.container);
       },
       after: () => {

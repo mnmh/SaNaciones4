@@ -12,7 +12,6 @@ export const figureMask = (container) => {
     let maskFigure = figure.querySelector('svg');
     gsap.set(figureBox, { clipPath: 'url(#clip-figure)' });
     // gsap.set(maskFigure, { transformOrigin: 'center bottom',
-    });
   });
   console.log('figureMask');
 };

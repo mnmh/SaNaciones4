@@ -53,16 +53,19 @@ section {
   text-align: left;
 
   figure {
-    div {
-      width: 100%;
-      // clip-path: url(#clip-figure);
+    border: 1px solid red;
 
-      img {
-        width: 100%;
-      }
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      overflow: hidden;
     }
 
-
+    img {
+      clip-path: url(#clip-figure);
+    }
   }
 }
 
