@@ -42,6 +42,31 @@ body {
 
 }
 
+.figurin {
+  padding: 0;
+  width: 800px;
+  height: 350px;
+  border: 1px solid blue;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .figurinMask {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    -webkit-clip-path: url(#shapes);
+    clip-path: url(#shapes);
+  }
+}
+
 section {
   width: 100%;
   max-width: 1140px;
@@ -52,21 +77,6 @@ section {
   padding: 0 20px;
   text-align: left;
 
-  figure {
-    border: 1px solid red;
-
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 0;
-      overflow: hidden;
-    }
-
-    img {
-      clip-path: url(#clip-figure);
-    }
-  }
 }
 
 .container {
@@ -86,7 +96,8 @@ section {
       padding: 20vh 0 0 0;
       display: flex;
       flex-flow: column nowrap;
-      opacity: 0;
+      // opacity: 0;
+      opacity: 1;
     }
   }
 }

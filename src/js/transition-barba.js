@@ -38,10 +38,10 @@ barba.init({
       name: 'once-transition',
       sync: true,
       once: ({ next }) => {
-        initSmoothScroll(next.container);
-        // figureMask(next.container);
-        terrainMask(next.container, next.namespace);
-        terrainParallax(next.container);
+        // initSmoothScroll(next.container);
+        figureMask(next.container);
+        // terrainMask(next.container, next.namespace);
+        // terrainParallax(next.container);
       },
       leave() {},
       enter() {},
