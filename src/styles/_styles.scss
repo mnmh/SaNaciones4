@@ -42,29 +42,69 @@ body {
 
 }
 
-.figurin {
-  padding: 0;
-  width: 800px;
-  height: 350px;
-  border: 1px solid blue;
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 0;
-    overflow: hidden;
-  }
-
-  .figurinMask {
-    width: 100%;
-    height: 100%;
-  }
+figure {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  margin-bottom: 10vh;
 
   img {
-    -webkit-clip-path: url(#shapes);
-    clip-path: url(#shapes);
+    width: 100%;
+    height: auto;
+    margin-bottom: $imgBottom;
+    border-radius: 15px;
   }
+
+  figcaption {
+    position: relative;
+    margin-right: 20px;
+    max-width: min(800px, 42%);
+
+    span {
+      display: block;
+    }
+  }
+
+  .icon {
+    height: 100%;
+    width: auto;
+    stroke-width: 1px;
+  }
+
+  &.figureMask {
+    position: relative;
+    width: 100%;
+
+    svg {
+
+      &.svgMask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+      }
+    }
+
+    figcaption {
+
+      .figIcon {
+        width: auto;
+        position: absolute;
+        left: 10px;
+        height: $iconCaption;
+        top: ($iconCaption + $imgBottom) * -1;
+      }
+    }
+
+    img {
+      // clip-path: url(#shape);
+      // -webkit-clip-path: url(#shape);
+      /* transform: translateZ(0);
+      will-change: transform; */
+    }
+  }
+
 }
 
 section {
@@ -96,8 +136,8 @@ section {
       padding: 20vh 0 0 0;
       display: flex;
       flex-flow: column nowrap;
-      // opacity: 0;
-      opacity: 1;
+      opacity: 0;
+      // opacity: 1;
     }
   }
 }

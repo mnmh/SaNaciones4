@@ -13,6 +13,6 @@ const blobs = [
 ];
 
 //--desordena el array
-const shuffled = [...blobs].sort(() => 0.5 - Math.random());
+const shuffled = [...blobs].sort(() => Math.random() - 0.5);
 //--nuevo array solo con 4 elementos
 export let blobRandom = shuffled.slice(0, 4);

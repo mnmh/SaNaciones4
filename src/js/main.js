@@ -7,6 +7,9 @@ import '../styles/main.scss';
 
 // scripts
 
+//-- ajusta las mascaras de las imágenes
+import { resizeFigMask } from './figure-mask.js';
+
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
@@ -17,5 +20,10 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 import './menu.js';
 // transitions
 import './transition-barba.js';
-// icons
-import './icons.js';
+
+window.addEventListener('resize', () => {
+  vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  resizeFigMask();
+});

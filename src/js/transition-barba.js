@@ -18,6 +18,9 @@ import { terrainMask } from './transition-mask.js';
 //-- var locomotive
 import { scroll, initSmoothScroll } from './smooth.js';
 
+//--
+import { icons } from './icons.js';
+
 newMask(
   `${gsap.utils.random(10, 90, 1)}vw`,
   `${gsap.utils.random(10, 90, 1)}vh`
@@ -38,10 +41,11 @@ barba.init({
       name: 'once-transition',
       sync: true,
       once: ({ next }) => {
-        // initSmoothScroll(next.container);
+        icons();
         figureMask(next.container);
-        // terrainMask(next.container, next.namespace);
-        // terrainParallax(next.container);
+        initSmoothScroll(next.container);
+        terrainMask(next.container, next.namespace);
+        terrainParallax(next.container);
       },
       leave() {},
       enter() {},
@@ -67,6 +71,8 @@ barba.init({
       beforeEnter: ({ next }) => {
         ScrollTrigger.getAll().forEach((t) => t.kill());
         scroll.destroy();
+        icons();
+        figureMask(next.container);
         initSmoothScroll(next.container);
       },
       enter: ({ next }) => {

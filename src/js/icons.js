@@ -1,14 +1,17 @@
 // Lucide icons
 // https://github.com/lucide-icons/lucide
 // view: https://iconer.app/lucide/
-import { createIcons, X, Eye } from 'lucide';
+import { createIcons, X, Eye, Camera } from 'lucide';
 
-createIcons({
-  icons: {
-    X,
-    Eye,
-  },
-  attrs: {
-    class: ['icon'],
-  },
-});
+export const icons = () => {
+  createIcons({
+    icons: {
+      X,
+      Eye,
+      Camera,
+    },
+    attrs: {
+      class: ['icon'],
+    },
+  });
+};
