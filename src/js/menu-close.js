@@ -26,7 +26,7 @@ export const menuClose = (ejeSel) => {
     menuToggle.ariaExpanded = 'false';
     document.removeEventListener('mousemove', parall);
     caminos.forEach((x) => x.classList.add('disable'));
-    const scaleTime = gsap.utils.random(1.5, 2, 0.1);
+    let scaleTime = gsap.utils.random(1.5, 2, 0.1);
 
     gsap
       .timeline({

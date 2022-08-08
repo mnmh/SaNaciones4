@@ -31,7 +31,7 @@ export const menuOpen = (open) => {
   document.removeEventListener('mousemove', parall);
   posRandom();
   dirRandom();
-  scaleTime = gsap.utils.random(2, 2.5, 0.1);
+  let scaleTime = gsap.utils.random(2, 2.5, 0.1);
   gsap.to(select('.content'), { opacity: 0, duration: 0.8 });
 
   const openM = gsap
