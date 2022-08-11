@@ -20,23 +20,24 @@ const pathsRandom = Math.floor(Math.random() * pathsShuffled.length);
 export const figureMask = (container) => {
   figures = container.querySelectorAll('.figureMask');
   figures.forEach((figure, i) => {
-    let svg = document.createElementNS(svgNs, 'svg');
+    const svg = document.createElementNS(svgNs, 'svg');
     svg.xmlns = svgNs;
     svg.ariaHidden = 'true';
     svg.classList.add('svgMask');
-    let defs = document.createElementNS(svgNs, 'defs');
-    let clipPath = document.createElementNS(svgNs, 'clipPath');
+    const defs = document.createElementNS(svgNs, 'defs');
+    const clipPath = document.createElementNS(svgNs, 'clipPath');
     clipPath.id = `clip${i}`;
-    let path = document.createElementNS(svgNs, 'path');
+    const path = document.createElementNS(svgNs, 'path');
     path.id = `path${i}`;
     path.setAttribute('d', pathsShuffled[pathsRandom]);
+
     figure.appendChild(svg);
     svg.appendChild(defs);
     defs.appendChild(clipPath);
     clipPath.appendChild(path);
 
-    let image = figure.querySelector('img');
-    let iconX =
+    const image = figure.querySelector('img');
+    const iconX =
       figure.querySelector('figcaption').offsetLeft +
       figure.querySelector('.figIcon').offsetLeft +
       figure.querySelector('.figIcon').offsetWidth / 2;

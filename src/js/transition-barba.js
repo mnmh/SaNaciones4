@@ -2,9 +2,9 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-
 //-- BarbaJS (transitions)
 import barba from '@barba/core';
+
 //-- función cerrar menú
 import { menuClose } from './menu-close.js';
 //--
@@ -17,6 +17,8 @@ import { terrainParallax } from './scroll.js';
 import { terrainMask } from './transition-mask.js';
 //-- var locomotive
 import { scroll, initSmoothScroll } from './smooth.js';
+//-- saludos
+import { saludos } from './dialogo-saludos.js';
 
 //--
 import { icons } from './icons.js';
@@ -36,6 +38,14 @@ barba.hooks.after(() => {
 barba.init({
   timeout: 5000,
   preventRunning: true,
+  views: [
+    {
+      namespace: 'dialogo',
+      beforeEnter: ({ next }) => {
+        saludos(next.container);
+      },
+    },
+  ],
   transitions: [
     {
       name: 'once-transition',

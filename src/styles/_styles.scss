@@ -42,6 +42,10 @@ body {
 
 }
 
+.icon {
+  stroke-width: 1px;
+}
+
 figure {
   display: flex;
   flex-flow: column nowrap;
@@ -68,7 +72,6 @@ figure {
   .icon {
     height: 100%;
     width: auto;
-    stroke-width: 1px;
   }
 
   &.figureMask {
@@ -116,7 +119,7 @@ section {
   flex-flow: column nowrap;
   padding: 0 20px;
   text-align: left;
-
+  position: relative;
 }
 
 .container {
