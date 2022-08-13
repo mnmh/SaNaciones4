@@ -128,7 +128,7 @@ export const saludos = (container) => {
 
     const saludoMov = () => {
       const blob = Math.floor(Math.random() * blobsShuffled.length);
-      const dur = gsap.utils.random(1, 3, 0.5);
+      const dur = gsap.utils.random(3, 5, 0.5);
 
       gsap.timeline({ onComplete: saludoMov }).to(path, {
         attr: {
@@ -138,7 +138,7 @@ export const saludos = (container) => {
         ease: 'sine.inOut',
       });
     };
-    saludoMov();
+    // saludoMov();
 
     saludo.addEventListener('click', () => {
       indexOn = saludosAll.findIndex((x) => x === saludo);
