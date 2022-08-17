@@ -8,9 +8,9 @@ import LocomotiveScroll from 'locomotive-scroll';
 
 export let scroll;
 
-export const initSmoothScroll = (box) => {
+export const initSmoothScroll = (container) => {
   scroll = new LocomotiveScroll({
-    el: box.querySelector('[data-scroll-container]'),
+    el: container.querySelector('[data-scroll-container]'),
     smooth: true,
     getDirection: true,
   });
@@ -31,7 +31,7 @@ export const initSmoothScroll = (box) => {
         height: window.innerHeight,
       };
     },
-    pinType: box.querySelector('[data-scroll-container]').style.transform
+    pinType: container.querySelector('[data-scroll-container]').style.transform
       ? 'transform'
       : 'fixed',
   });

@@ -41,7 +41,7 @@ barba.init({
   views: [
     {
       namespace: 'dialogo',
-      beforeEnter: ({ next }) => {
+      afterEnter: ({ next }) => {
         saludos(next.container);
       },
     },
@@ -57,8 +57,6 @@ barba.init({
         terrainMask(next.container, next.namespace);
         terrainParallax(next.container);
       },
-      leave() {},
-      enter() {},
     },
     {
       name: 'menu-transition',

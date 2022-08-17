@@ -1,7 +1,7 @@
 section {
 
   &#saludos {
-    width: 90%;
+    width: 100%;
     max-width: 1400px;
     height: 80vh;
     display: flex;
@@ -10,8 +10,12 @@ section {
     flex-flow: column nowrap;
     padding: 0;
     text-align: center;
-    margin: 0 auto;
-    // border: 1px solid blue;
+    margin: 20vh auto;
+    // border: 1px solid #7c7c7c;
+
+    h2 {
+      // opacity: 0;
+    }
 
     #saludoControls {
       position: absolute;
@@ -20,15 +24,22 @@ section {
       align-items: center;
       justify-content: center;
       flex-flow: row nowrap;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
 
       .icon {
         width: 60px;
         height: auto;
       }
 
-      div {
-        cursor: pointer;
+      &.active {
+        div {
+          cursor: pointer;
+          pointer-events: auto;
+        }
       }
+
     }
 
     blockquote {
@@ -39,188 +50,47 @@ section {
       position: absolute;
       z-index: 100;
       opacity: 0;
+      pointer-events: none;
     }
 
-    svg {
+    #saludoBlob {
+      position: absolute;
+      z-index: 50;
+      width: 4%;
+      height: auto;
+      // max-width: 120vw;
+      // max-height: 120vh;
+      pointer-events: none;
+      opacity: 0;
 
-      &#saludoBlob {
-        position: absolute;
-        z-index: 50;
-        top: 0;
-        left: 0;
-        width: 10vw;
-        height: auto;
-        pointer-events: none;
-        fill: #E23942;
-        // opacity: 0;
+      path {
+        fill: DarkOliveGreen;
+        // transform-origin: 50% 50%;
+        // transform-box: fill-box;
       }
-
     }
 
     .saludo {
       position: absolute;
-      z-index: 20;
-      top: 0;
-      left: 0;
+      z-index: 10;
       width: 8vw;
       height: 8vw;
       cursor: pointer;
-      // background-color: black;
-      // animation-duration: 4s;
-      // animation-timing-function: linear;
-      // animation-iteration-count: infinite;
-      // animation-direction: alternate;
+      pointer-events: none;
 
-      svg {
-        &.saludoSvg {
-          width: 100%;
-          height: auto;
+      .saludoSvg {
+        width: 100%;
+        height: auto;
 
-          path {
-            fill: #E23942;
-            opacity: 0.6;
-          }
+        path {
+          fill: DarkOliveGreen;
+          opacity: 0;
         }
       }
 
-
-      &.move1 {
-        border-radius: 70% 50% 70% 50% / 80% 60% 60% 40%;
-        // animation-name: move1;
-      }
-
-      &.move2 {
-        border-radius: 58% 42% 56% 44% / 44% 41% 59% 56%;
-        // animation-name: move2;
-      }
-
-      &.move3 {
-        border-radius: 48% 52% 52% 48% / 44% 59% 41% 56%;
-        // animation-name: move3;
-      }
-
-      &.move4 {
-        border-radius: 36% 64% 44% 56% / 62% 35% 65% 38%;
-        // animation-name: move4;
-      }
-
-      &.move5 {
-        border-radius: 52% 48% 57% 43% / 56% 49% 51% 44%;
-        // animation-name: move5;
-      }
-
-      &.move6 {
-        border-radius: 44% 56% 38% 62% / 58% 42% 58% 42%;
-        // animation-name: move6;
+      &.active {
+        pointer-events: auto;
       }
     }
-  }
-}
-
-@keyframes move1 {
-  0% {
-    border-radius: 70% 50% 70% 50% / 80% 60% 60% 40%;
-  }
-
-  33% {
-    border-radius: 48% 52% 52% 48% / 44% 59% 41% 56%;
-  }
-
-  66% {
-    border-radius: 52% 48% 57% 43% / 56% 49% 51% 44%;
-  }
-
-  100% {
-    border-radius: 70% 50% 70% 50% / 80% 60% 60% 40%;
-  }
-}
-
-@keyframes move2 {
-  0% {
-    border-radius: 58% 42% 56% 44% / 44% 41% 59% 56%;
-  }
-
-  33% {
-    border-radius: 36% 64% 44% 56% / 62% 35% 65% 38%;
-  }
-
-  66% {
-    border-radius: 44% 56% 38% 62% / 58% 42% 58% 42%;
-  }
-
-  100% {
-    border-radius: 58% 42% 56% 44% / 44% 41% 59% 56%;
-  }
-}
-
-@keyframes move3 {
-  0% {
-    border-radius: 48% 52% 52% 48% / 44% 59% 41% 56%;
-  }
-
-  33% {
-    border-radius: 52% 48% 57% 43% / 56% 49% 51% 44%;
-  }
-
-  66% {
-    border-radius: 70% 50% 70% 50% / 80% 60% 60% 40%;
-  }
-
-  100% {
-    border-radius: 48% 52% 52% 48% / 44% 59% 41% 56%;
-  }
-}
-
-@keyframes move4 {
-  0% {
-    border-radius: 36% 64% 44% 56% / 62% 35% 65% 38%;
-  }
-
-  33% {
-    border-radius: 44% 56% 38% 62% / 58% 42% 58% 42%;
-  }
-
-  66% {
-    border-radius: 58% 42% 56% 44% / 44% 41% 59% 56%;
-  }
-
-  100% {
-    border-radius: 36% 64% 44% 56% / 62% 35% 65% 38%;
-  }
-}
-
-@keyframes move5 {
-  0% {
-    border-radius: 52% 48% 57% 43% / 56% 49% 51% 44%;
-  }
-
-  33% {
-    border-radius: 70% 50% 70% 50% / 80% 60% 60% 40%;
-  }
-
-  66% {
-    border-radius: 48% 52% 52% 48% / 44% 59% 41% 56%;
-  }
-
-  100% {
-    border-radius: 52% 48% 57% 43% / 56% 49% 51% 44%;
-  }
-}
-
-@keyframes move6 {
-  0% {
-    border-radius: 44% 56% 38% 62% / 58% 42% 58% 42%;
-  }
-
-  33% {
-    border-radius: 58% 42% 56% 44% / 44% 41% 59% 56%;
-  }
-
-  66% {
-    border-radius: 36% 64% 44% 56% / 62% 35% 65% 38%;
-  }
-
-  100% {
-    border-radius: 44% 56% 38% 62% / 58% 42% 58% 42%;
   }
 }

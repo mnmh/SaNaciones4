@@ -10,10 +10,10 @@ export const scrolls = (container) => {
   // container.querySelector('.terrain').setAttribute('data-scroll-sticky', '');
 };
 
-export const terrainParallax = (box) => {
+export const terrainParallax = (container) => {
   //--
-  let terreno = box.querySelector('.terrain');
-  let triggerBox = box.querySelector('[data-scroll-container]');
+  let terreno = container.querySelector('.terrain');
+  let triggerBox = container.querySelector('[data-scroll-container]');
   gsap.to(terreno, {
     y: '-80vh',
     ease: 'linear',
