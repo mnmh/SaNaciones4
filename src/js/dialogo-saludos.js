@@ -2,6 +2,8 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+import { scroll } from './smooth.js';
+
 //--
 import { create } from './variables.js';
 import { blobs } from './blobs.js';
@@ -24,6 +26,7 @@ let indexOn,
   prevBtn,
   nextBtn,
   closeBtn,
+  saludoBox,
   saludoBlob,
   saludoPath;
 
@@ -81,13 +84,15 @@ const next = () => {
 const close = () => {
   controlsOff();
   gsap
-    .timeline()
+    .timeline({
+      onComplete: () => scroll.start(),
+    })
     .call(controlsOff)
     .to(quotes[indexOn], { opacity: 0, duration: 0.5, ease: 'linear' })
-    .to(saludoBlob, {
+    .to(saludoBox, {
       left: () => pos[indexOn].left,
       top: () => pos[indexOn].top,
-      width: '3%',
+      width: '2%',
       duration: 1,
       ease: 'power1.in',
     })
@@ -102,10 +107,10 @@ const close = () => {
       },
       '<'
     )
-    .call(saludosPlay, null, '-=0.5')
-    .to(saludoBlob, {
+    .call(saludosPlay, null, '-=0.4')
+    .set(saludoBox, {
       opacity: 0,
-      duration: 0.6,
+      duration: 0.3,
       ease: 'none',
     });
 };
@@ -120,8 +125,8 @@ const setQuote = () => {
         attr: {
           d: blobsShuffled[indexOn],
         },
-        duration: 1,
-        ease: 'sine.inOut',
+        duration: 1.7,
+        ease: 'back.out(2)',
         delay: 0.2,
       },
       '<'
@@ -232,6 +237,8 @@ const saludosPause = () => {
 
 export const saludos = (container) => {
   const section = container.querySelector('#saludos');
+  const scrollBox = container.querySelector('[data-scroll-container]');
+  saludoBox = container.querySelector('#saludoBox');
   saludoBlob = container.querySelector('#saludoBlob');
   saludoPath = container.querySelector('#saludoPath');
   quotes = Array.from(section.querySelectorAll('blockquote'));
@@ -268,7 +275,7 @@ export const saludos = (container) => {
         d: () => newPath,
       },
       duration: () => newDuration,
-      ease: 'none',
+      ease: 'sine.inOut',
       paused: true,
       repeat: -1,
       repeatRefresh: true,
@@ -287,36 +294,38 @@ export const saludos = (container) => {
 
     saludo.addEventListener('click', () => {
       indexOn = saludosAll.findIndex((x) => x === saludo);
+      const center = ((window.innerHeight - section.offsetHeight) / 2) * -1;
+      scroll.scrollTo(section, {
+        offset: center,
+        duration: 500,
+        callback: scroll.stop(),
+      });
       saludosPause();
       gsap
         .timeline()
-        .set(saludoBlob, {
+        .set(saludoBox, {
           left: () => pos[indexOn].left,
           top: () => pos[indexOn].top,
-          width: '5%',
+          width: '2%',
           opacity: 1,
+          delay: 0.3,
         })
         .addLabel('inicio')
-        .to(saludoBlob, {
-          width: '10%',
+        .to(saludoBox, {
+          width: '7%',
           duration: 0.5,
-          ease: 'none',
+          ease: 'sine.in',
         })
-        .to(saludoBlob, {
+        .to(saludoBox, {
           left: section.offsetWidth / 2,
           top: section.offsetHeight / 2,
-          width: '100%',
-          duration: 1.2,
-          ease: 'sine.out',
-        })
-        .to(saludoBlob, {
           width: '130%',
-          duration: 0.4,
-          ease: 'none',
+          duration: 2.5,
+          ease: 'back.out(2)',
         })
         .to(
           saludoPath,
-          { attr: { d: blobRandom() }, duration: 1.5, ease: 'none' },
+          { attr: { d: blobRandom() }, duration: 2.2, ease: 'sine.inOut' },
           'inicio'
         )
         .call(controlsOn)
@@ -329,7 +338,7 @@ export const saludos = (container) => {
     });
   });
 
-  gsap.set(saludoBlob, {
+  gsap.set(saludoBox, {
     left: 0,
     top: 0,
     xPercent: -50,

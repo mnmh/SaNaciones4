@@ -53,18 +53,24 @@ section {
       pointer-events: none;
     }
 
-    #saludoBlob {
+    #saludoBox {
       position: absolute;
       z-index: 50;
-      width: 4%;
+      width: 5%;
+      height: auto;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    #saludoBlob {
+      position: relative;
+      width: 100%;
       height: auto;
       // max-width: 120vw;
       // max-height: 120vh;
-      pointer-events: none;
-      opacity: 0;
+      fill: DarkOliveGreen;
 
       path {
-        fill: DarkOliveGreen;
         // transform-origin: 50% 50%;
         // transform-box: fill-box;
       }
