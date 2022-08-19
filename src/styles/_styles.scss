@@ -120,6 +120,7 @@ section {
   padding: 0 20px;
   text-align: left;
   position: relative;
+  pointer-events: unset;
 }
 
 .container {
@@ -131,6 +132,7 @@ section {
     height: 100%;
 
     .content {
+      pointer-events: inherit;
       position: relative;
       z-index: 100;
       width: 100%;
@@ -145,6 +147,19 @@ section {
   }
 }
 
+.terrainUp {
+  pointer-events: none;
+  position: absolute;
+  width: 100vw;
+  height: 180vh;
+  left: 0;
+  top: 0;
+  z-index: 500;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 .terrain {
   pointer-events: none;
   position: absolute;
@@ -153,6 +168,9 @@ section {
   left: 0;
   top: 0;
   z-index: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   opacity: 0;
   // filter: blur(2px);
 

@@ -15,6 +15,7 @@ section {
 
     h2 {
       // opacity: 0;
+      pointer-events: none;
     }
 
     #saludoControls {
@@ -51,52 +52,100 @@ section {
       z-index: 100;
       opacity: 0;
       pointer-events: none;
-    }
+      max-width: 60%;
 
-    #saludoBox {
-      position: absolute;
-      z-index: 50;
-      width: 5%;
-      height: auto;
-      pointer-events: none;
-      opacity: 0;
-    }
+      p {
+        color: #e1b924;
+      }
 
-    #saludoBlob {
-      position: relative;
+      cite {
+        color: #e0bf75;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.saludosAlt {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  max-width: 1400px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  padding: 0;
+  z-index: 100;
+  pointer-events: none;
+  // border: 1px solid red;
+
+  .saludo {
+    position: absolute;
+    z-index: 10;
+    width: 8vw;
+    height: 8vw;
+    cursor: pointer;
+    pointer-events: none;
+    // border: 1px solid blue;
+
+    .saludoSvg {
       width: 100%;
       height: auto;
-      // max-width: 120vw;
-      // max-height: 120vh;
-      fill: DarkOliveGreen;
 
       path {
-        // transform-origin: 50% 50%;
-        // transform-box: fill-box;
+        fill: DarkOliveGreen;
+        opacity: 0;
       }
     }
 
-    .saludo {
-      position: absolute;
-      z-index: 10;
-      width: 8vw;
-      height: 8vw;
-      cursor: pointer;
-      pointer-events: none;
+    &.active {
+      pointer-events: auto;
+    }
+  }
+}
 
-      .saludoSvg {
-        width: 100%;
-        height: auto;
+#saludosDown {
+  pointer-events: none;
+  mix-blend-mode: multiply;
 
-        path {
-          fill: DarkOliveGreen;
-          opacity: 0;
-        }
+  .saludo {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.8;
+
+    .saludoSvg {
+      width: 100%;
+      height: auto;
+
+      path {
+        fill: DarkOliveGreen;
+        opacity: 0;
       }
+    }
+  }
 
-      &.active {
-        pointer-events: auto;
-      }
+  #saludoBox {
+    position: absolute;
+    z-index: 50;
+    width: 5%;
+    height: auto;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  #saludoBlob {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // max-width: 120vw;
+    // max-height: 120vh;
+    fill: DarkOliveGreen;
+
+    path {
+      // transform-origin: 50% 50%;
+      // transform-box: fill-box;
     }
   }
 }

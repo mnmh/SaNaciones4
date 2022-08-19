@@ -12,7 +12,7 @@ export const initSmoothScroll = (container) => {
   scroll = new LocomotiveScroll({
     el: container.querySelector('[data-scroll-container]'),
     smooth: true,
-    getDirection: true,
+    scrollFromAnywhere: true,
   });
 
   scroll.on('scroll', ScrollTrigger.update);

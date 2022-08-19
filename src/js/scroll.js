@@ -12,9 +12,10 @@ export const scrolls = (container) => {
 
 export const terrainParallax = (container) => {
   //--
-  let terreno = container.querySelector('.terrain');
-  let triggerBox = container.querySelector('[data-scroll-container]');
-  gsap.to(terreno, {
+  const terrain = container.querySelector('.terrain');
+  const terrainUp = container.querySelector('.terrainUp');
+  const triggerBox = container.querySelector('[data-scroll-container]');
+  gsap.to([terrain, terrainUp], {
     y: '-80vh',
     ease: 'linear',
     scrollTrigger: {

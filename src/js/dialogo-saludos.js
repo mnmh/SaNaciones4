@@ -12,14 +12,15 @@ import { blobs } from './blobs.js';
 
 const svgNs = 'http://www.w3.org/2000/svg';
 
-let [quotes, pos, blobsShuffled, saludosAll, pathsAll, saludosMov] = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-];
+let [
+  quotes,
+  pos,
+  blobsShuffled,
+  saludosDownAll,
+  pathsAll,
+  saludosMov,
+  saludosUpAll,
+] = [[], [], [], [], [], [], []];
 let indexOn,
   indexOff,
   controls,
@@ -28,7 +29,8 @@ let indexOn,
   closeBtn,
   saludoBox,
   saludoBlob,
-  saludoPath;
+  saludoPath,
+  saludosTitle;
 
 const disarray = () => {
   pos = [
@@ -96,6 +98,7 @@ const close = () => {
       duration: 1,
       ease: 'power1.in',
     })
+    .to(saludosTitle, { opacity: 1, duration: 0.5, ease: 'none' })
     .to(
       saludoPath,
       {
@@ -123,7 +126,7 @@ const setQuote = () => {
       saludoPath,
       {
         attr: {
-          d: blobsShuffled[indexOn],
+          d: blobRandom(),
         },
         duration: 1.7,
         ease: 'back.out(2)',
@@ -171,8 +174,12 @@ const blobTime = gsap.utils.random(2, 4, 0.5, true);
 const saludosPlay = (create) => {
   if (create == true) {
     disarray();
-    saludosAll.forEach((saludo, i) => {
+    saludosDownAll.forEach((saludo, i) => {
       gsap.set(saludo, {
+        left: () => pos[i].left,
+        top: () => pos[i].top,
+      });
+      gsap.set(saludosUpAll[i], {
         left: () => pos[i].left,
         top: () => pos[i].top,
       });
@@ -207,7 +214,7 @@ const saludosPlay = (create) => {
       }
     );
   }
-  saludosAll.forEach((saludo) => {
+  saludosUpAll.forEach((saludo) => {
     saludo.classList.add('active');
   });
 
@@ -215,8 +222,9 @@ const saludosPlay = (create) => {
     mov.play();
   });
 };
+
 const saludosPause = () => {
-  saludosAll.forEach((saludo) => {
+  saludosUpAll.forEach((saludo) => {
     saludo.classList.remove('active');
   });
   gsap.fromTo(
@@ -235,22 +243,29 @@ const saludosPause = () => {
 
 //--
 
-export const saludos = (container) => {
-  const section = container.querySelector('#saludos');
-  const scrollBox = container.querySelector('[data-scroll-container]');
+export const saludosStart = (container) => {
+  const saludos = container.querySelector('#saludos');
+  saludosTitle = container.querySelector('#saludos h2');
+  const saludosAlt = container.querySelectorAll('.saludosAlt');
+  const saludosUp = container.querySelector('#saludosUp');
+  const saludosDown = container.querySelector('#saludosDown');
+  const terrain = container.querySelector('.terrain');
   saludoBox = container.querySelector('#saludoBox');
   saludoBlob = container.querySelector('#saludoBlob');
   saludoPath = container.querySelector('#saludoPath');
-  quotes = Array.from(section.querySelectorAll('blockquote'));
+  quotes = Array.from(saludos.querySelectorAll('blockquote'));
   controls = container.querySelector('#saludoControls');
   prevBtn = container.querySelector('#saludoPrev');
   nextBtn = container.querySelector('#saludoNext');
   closeBtn = container.querySelector('#saludoClose');
 
   quotes.forEach((quote, i) => {
-    const saludo = create('div');
-    saludo.ariaHidden = 'true';
-    saludo.classList.add('saludo');
+    const saludoUp = create('div');
+    saludoUp.ariaHidden = 'true';
+    saludoUp.classList.add('saludo');
+    const saludoDown = create('div');
+    saludoDown.ariaHidden = 'true';
+    saludoDown.classList.add('saludo');
 
     const svg = document.createElementNS(svgNs, 'svg');
     svg.setAttribute('viewBox', '0 0 200 200');
@@ -260,12 +275,14 @@ export const saludos = (container) => {
     path.setAttribute('d', blobs[i]);
     path.setAttribute('transform', 'translate(100 100)');
 
-    section.appendChild(saludo);
-    saludo.appendChild(svg);
+    saludosUp.appendChild(saludoUp);
     svg.appendChild(path);
+    saludoDown.appendChild(svg);
+    saludosDown.appendChild(saludoDown);
 
-    saludosAll.push(saludo);
+    saludosDownAll.push(saludoDown);
     pathsAll.push(path);
+    saludosUpAll.push(saludoUp);
 
     let newPath = blobs[Math.floor(Math.random() * blobs.length)];
     let newDuration = blobTime();
@@ -285,22 +302,42 @@ export const saludos = (container) => {
       },
     });
 
-    gsap.set(saludo, {
+    gsap.set(saludosAlt, {
+      yPercent: -50,
+    });
+
+    gsap.set([saludoDown, saludoUp], {
       xPercent: -50,
       yPercent: -50,
     });
 
     saludosMov.push(mov);
 
-    saludo.addEventListener('click', () => {
-      indexOn = saludosAll.findIndex((x) => x === saludo);
-      const center = ((window.innerHeight - section.offsetHeight) / 2) * -1;
-      scroll.scrollTo(section, {
+    saludoUp.addEventListener('click', () => {
+      indexOn = saludosUpAll.findIndex((x) => x === saludoUp);
+
+      const center = ((window.innerHeight - saludos.offsetHeight) / 2) * -1;
+      scroll.scrollTo(saludos, {
         offset: center,
         duration: 500,
-        callback: scroll.stop(),
+        callback: () => {
+          scroll.stop();
+          gsap
+            .timeline()
+            .delay(3)
+            .to('.saludosAlt', {
+              top: Math.round(
+                terrain.getBoundingClientRect().top * -1 +
+                  window.innerHeight / 2
+              ),
+              duration: 0.5,
+              ease: 'none',
+            });
+        },
       });
+
       saludosPause();
+
       gsap
         .timeline()
         .set(saludoBox, {
@@ -310,15 +347,17 @@ export const saludos = (container) => {
           opacity: 1,
           delay: 0.3,
         })
+        .delay(0.5)
         .addLabel('inicio')
         .to(saludoBox, {
           width: '7%',
           duration: 0.5,
           ease: 'sine.in',
         })
+        .to(saludosTitle, { opacity: 0, duration: 0.5, ease: 'none' })
         .to(saludoBox, {
-          left: section.offsetWidth / 2,
-          top: section.offsetHeight / 2,
+          left: saludosDown.offsetWidth / 2,
+          top: saludosDown.offsetHeight / 2,
           width: '130%',
           duration: 2.5,
           ease: 'back.out(2)',
@@ -348,11 +387,19 @@ export const saludos = (container) => {
   // saludosPlay(true);
 
   ScrollTrigger.create({
+    // markers: true,
     scroller: container.querySelector('[data-scroll-container]'),
-    trigger: section,
-    start: 'top 50%',
+    trigger: saludos,
+    start: '40% 50%',
     end: '90% 20%',
-    onEnter: () => saludosPlay(true),
+    onEnter: () => {
+      saludosPlay(true);
+      gsap.set(saludosAlt, {
+        top: Math.round(
+          terrain.getBoundingClientRect().top * -1 + window.innerHeight / 2
+        ),
+      });
+    },
     onLeave: saludosPause,
     onEnterBack: () => saludosPlay(true),
     onLeaveBack: saludosPause,

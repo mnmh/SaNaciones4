@@ -18,7 +18,7 @@ import { terrainMask } from './transition-mask.js';
 //-- var locomotive
 import { scroll, initSmoothScroll } from './smooth.js';
 //-- saludos
-import { saludos } from './dialogo-saludos.js';
+import { saludosStart } from './dialogo-saludos.js';
 
 //--
 import { icons } from './icons.js';
@@ -31,10 +31,6 @@ newMask(
 barba.hooks.enter(() => {
   window.scrollTo(0, 0);
 });
-barba.hooks.after(() => {
-  scroll.init();
-});
-
 barba.init({
   timeout: 5000,
   preventRunning: true,
@@ -42,7 +38,7 @@ barba.init({
     {
       namespace: 'dialogo',
       afterEnter: ({ next }) => {
-        saludos(next.container);
+        saludosStart(next.container);
       },
     },
   ],
@@ -81,10 +77,9 @@ barba.init({
         scroll.destroy();
         icons();
         figureMask(next.container);
-        initSmoothScroll(next.container);
       },
       enter: ({ next }) => {
-        // figureMask(next.container);
+        initSmoothScroll(next.container);
         terrainParallax(next.container);
       },
       after: () => {
