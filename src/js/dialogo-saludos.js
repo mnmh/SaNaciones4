@@ -175,11 +175,7 @@ const saludosPlay = (create) => {
   if (create == true) {
     disarray();
     saludosDownAll.forEach((saludo, i) => {
-      gsap.set(saludo, {
-        left: () => pos[i].left,
-        top: () => pos[i].top,
-      });
-      gsap.set(saludosUpAll[i], {
+      gsap.set([saludo, saludosUpAll[i]], {
         left: () => pos[i].left,
         top: () => pos[i].top,
       });
@@ -187,57 +183,52 @@ const saludosPlay = (create) => {
     pathsAll.forEach((path) => {
       gsap.set(path, { attr: { d: blobRandom() } });
     });
-    gsap.fromTo(
-      '.saludo path',
-      { opacity: 0, scale: 0.2, transformOrigin: '50% 50%' },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.6,
-        delay: 0.1,
-        stagger: {
-          each: 0.15,
-          from: 'random',
-          ease: 'power1.out',
-        },
-      }
-    );
-  } else {
-    gsap.fromTo(
-      '.saludo path',
-      { opacity: 0, scale: 0.2, transformOrigin: '50% 50%' },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.5,
+    gsap.to('.saludo path', {
+      transformOrigin: '50% 50%',
+      opacity: 1,
+      scale: 1,
+      duration: 0.5,
+      delay: 0.1,
+      stagger: {
+        each: 0.15,
+        from: 'random',
         ease: 'power1.out',
-      }
-    );
+      },
+    });
+  } else {
+    gsap.to('.saludo path', {
+      transformOrigin: '50% 50%',
+      opacity: 1,
+      scale: 1,
+      duration: 0.5,
+      delay: 0.1,
+      stagger: {
+        each: 0.15,
+        from: 'random',
+        ease: 'power1.out',
+      },
+    });
   }
   saludosUpAll.forEach((saludo) => {
     saludo.classList.add('active');
   });
 
-  saludosMov.forEach((mov) => {
+  /* saludosMov.forEach((mov) => {
     mov.play();
-  });
+  }); */
 };
 
 const saludosPause = () => {
   saludosUpAll.forEach((saludo) => {
     saludo.classList.remove('active');
   });
-  gsap.fromTo(
-    '.saludo path',
-    { opacity: 1, scale: 1, transformOrigin: '50% 50%' },
-    {
-      opacity: 0,
-      scale: 0.2,
-      duration: 0.5,
-    }
-  );
   saludosMov.forEach((mov) => {
     mov.pause();
+  });
+  gsap.to('.saludo path', {
+    opacity: 0,
+    scale: 0.2,
+    duration: 0.5,
   });
 };
 
@@ -250,6 +241,7 @@ export const saludosStart = (container) => {
   const saludosUp = container.querySelector('#saludosUp');
   const saludosDown = container.querySelector('#saludosDown');
   const terrain = container.querySelector('.terrain');
+  const scrollContainer = container.querySelector('[data-scroll-container]');
   saludoBox = container.querySelector('#saludoBox');
   saludoBlob = container.querySelector('#saludoBlob');
   saludoPath = container.querySelector('#saludoPath');
@@ -387,8 +379,59 @@ export const saludosStart = (container) => {
   // saludosPlay(true);
 
   ScrollTrigger.create({
+    markers: true,
+    scroller: scrollContainer,
+    trigger: saludos,
+    start: '50% 50%',
+    end: '+=1000 50%',
+    pin: true,
+    pinSpacing: true,
+    onEnter: () => {
+      terrain.classList.add('change');
+    },
+    onLeave: () => {
+      terrain.classList.remove('change');
+    },
+    onEnterBack: () => {
+      terrain.classList.add('change');
+    },
+    onLeaveBack: () => {
+      terrain.classList.remove('change');
+    },
+
+    /* onEnter: () => {
+      gsap.to(terrain, {
+        backgroundColor: '#063916',
+        duration: 0.5,
+        ease: 'linear',
+      });
+    },
+    onLeave: () => {
+      gsap.to(terrain, {
+        backgroundColor: '#e1b924',
+        duration: 0.5,
+        ease: 'linear',
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(terrain, {
+        backgroundColor: '#063916',
+        duration: 0.5,
+        ease: 'linear',
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(terrain, {
+        backgroundColor: '#e1b924',
+        duration: 0.5,
+        ease: 'linear',
+      });
+    }, */
+  });
+
+  ScrollTrigger.create({
     // markers: true,
-    scroller: container.querySelector('[data-scroll-container]'),
+    scroller: scrollContainer,
     trigger: saludos,
     start: '40% 50%',
     end: '90% 20%',
