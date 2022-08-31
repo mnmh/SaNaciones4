@@ -1,5 +1,6 @@
+@use 'sass:color';
 @use 'vars' as *;
-@use 'typography';
+@use 'colors' as c;
 @use 'mixins' as m;
 
 body {
@@ -302,16 +303,28 @@ section {
   position: relative;
 }
 
-$paper1: rgba(255, 255, 255, 0.3);
-$paper2: rgba(255, 255, 255, 0.2);
+// $paperGrid-color: color.adjust(c.$color2, $alpha: -0.3);
+$paperGrid-color: #ffefd1;
+$paperSize: 80px;
+
+$paperGrid1: transparent 18.5%, $paperGrid-color 19%, $paperGrid-color 19.5%,
+  transparent 20%, transparent;
+
+$paperGrid2: transparent 17.5%, $paperGrid-color 18%, $paperGrid-color 18.5%,
+  transparent 19%, transparent 37.5%, $paperGrid-color 38%,
+  $paperGrid-color 38.5%, transparent 39%, transparent 57.5%,
+  $paperGrid-color 58%, $paperGrid-color 58.5%, transparent 59%,
+  transparent 77.5%, $paperGrid-color 78%, $paperGrid-color 78.5%,
+  transparent 79%, transparent;
 
 .curaduria {
   // border: 1px solid red;
   width: 90%;
-  max-width: 600px;
+  max-width: 550px;
   position: relative;
   padding: 50px 80px 50px 50px;
   z-index: 100;
+  margin-bottom: 10vh;
 }
 
 .paper {
@@ -322,84 +335,32 @@ $paper2: rgba(255, 255, 255, 0.2);
   top: 0;
   left: 0;
   z-index: -10;
-  background-color: rgba(223, 191, 76, 0.2);
+  background-color: rgba(#ffefd1, 0.2);
 
   &:after {
+    opacity: 0.7;
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    // opacity: 0;
-    background-image: linear-gradient(
-        180deg,
-        transparent 17%,
-        $paper2 18%,
-        $paper2 19%,
-        transparent 20%,
-        transparent 37%,
-        $paper2 38%,
-        $paper2 39%,
-        transparent 40%,
-        transparent 57%,
-        $paper2 58%,
-        $paper2 59%,
-        transparent 60%,
-        transparent 77%,
-        $paper2 78%,
-        $paper2 79%,
-        transparent 80%,
-        transparent
-      ),
-      linear-gradient(
-        90deg,
-        transparent 17%,
-        $paper2 18%,
-        $paper2 19%,
-        transparent 20%,
-        transparent 37%,
-        $paper2 38%,
-        $paper2 39%,
-        transparent 40%,
-        transparent 57%,
-        $paper2 58%,
-        $paper2 59%,
-        transparent 60%,
-        transparent 77%,
-        $paper2 78%,
-        $paper2 79%,
-        transparent 80%,
-        transparent
-      );
+    width: calc(100% + 47px);
+    height: calc(100% + 47px);
+    top: -16px;
+    left: -16px;
+    background-color: transparent;
+    background-image: linear-gradient(180deg, $paperGrid1),
+      linear-gradient(90deg, $paperGrid1);
     background-size: 80px 80px;
   }
 
   &:before {
-    // opacity: 0;
+    opacity: 0.4;
     content: '';
     position: absolute;
-    width: calc(100% + 31px);
-    height: calc(100% + 31px);
-    top: -16px;
-    left: -16px;
-    background-color: transparent;
-    background-image: linear-gradient(
-        180deg,
-        transparent 18%,
-        $paper1 19%,
-        $paper1 21%,
-        transparent 22%,
-        transparent
-      ),
-      linear-gradient(
-        90deg,
-        transparent 18%,
-        $paper1 19%,
-        $paper1 21%,
-        transparent 22%,
-        transparent
-      );
-    background-size: 80px 80px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(180deg, $paperGrid2),
+      linear-gradient(90deg, $paperGrid2);
+    background-size: $paperSize $paperSize;
   }
 }
