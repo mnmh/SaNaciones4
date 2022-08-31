@@ -1,3 +1,5 @@
+@use 'mixins' as m;
+
 #saludos,
 .saludosAlt {
   width: 95vw;
@@ -11,7 +13,7 @@
 
 #saludos {
   margin: 10vh 0;
-  border: 1px solid blue;
+  // border: 1px solid blue;
 
   h2 {
     // opacity: 0;
@@ -72,7 +74,7 @@
   top: 0;
   z-index: 100;
   pointer-events: none;
-  border: 1px solid red;
+  // border: 1px solid red;
 
 
 

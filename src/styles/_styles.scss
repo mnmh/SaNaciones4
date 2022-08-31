@@ -1,5 +1,6 @@
-@use '_vars' as *;
-@use '_typography';
+@use 'vars' as *;
+@use 'typography';
+@use 'mixins' as m;
 
 body {
   background-color: #c7c7c7;
@@ -8,27 +9,27 @@ body {
   -o-transition: background-color 0.5s linear;
   transition: background-color 0.5s linear;
 
-  &.homeBody {
+  &.body--home {
     background-color: $gray0;
   }
 
-  &.dialogoBody {
+  &.body--dialogo {
     background-color: $gray1;
   }
 
-  &.territoriosBody {
+  &.body--territorios {
     background-color: $gray2;
   }
 
-  &.resistenciasBody {
+  &.body--resistencias {
     background-color: $gray3;
   }
 
-  &.fuerzaBody {
+  &.body--fuerza {
     background-color: $gray4;
   }
 
-  &.nacionesBody {
+  &.body--naciones {
     background-color: $gray5;
   }
 
@@ -39,7 +40,6 @@ body {
   &.off {
     background-color: transparent;
   }
-
 }
 
 .icon {
@@ -74,12 +74,11 @@ figure {
     width: auto;
   }
 
-  &.figureMask {
+  &.figure-mask {
     position: relative;
     width: 100%;
 
     svg {
-
       &.svgMask {
         position: absolute;
         top: 0;
@@ -90,8 +89,7 @@ figure {
     }
 
     figcaption {
-
-      .figIcon {
+      div {
         width: auto;
         position: absolute;
         left: 10px;
@@ -107,46 +105,38 @@ figure {
       will-change: transform; */
     }
   }
-
 }
 
-section {
-  width: 100%;
-  max-width: 1140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column nowrap;
-  padding: 0 20px;
-  text-align: left;
+[data-scroll-container] {
   position: relative;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
 }
 
-.container {
+.content {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  opacity: 0;
+  // opacity: 1;
+}
 
-  [data-scroll-container] {
-    position: relative;
-    z-index: 100;
-    width: 100%;
-    height: 100%;
+main {
+  @include m.flexible(column, nowrap, null, center);
+}
 
-    .content {
-      position: relative;
-      z-index: 100;
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      padding: 20vh 0 0 0;
-      opacity: 0;
-      // opacity: 1;
-
-      main {
-        display: flex;
-        flex-flow: column wrap;
-        align-items: center;
-      }
-    }
-  }
+.intro {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  @include m.flexible(column, nowrap, center, center);
+  transition: height 0.8s ease-out;
+  margin-bottom: 50vh;
 }
 
 .terrainUp {
@@ -157,9 +147,7 @@ section {
   left: 0;
   top: 0;
   z-index: 500;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  @include m.flexible(column, nowrap, null, center);
 }
 
 .terrain {
@@ -170,9 +158,7 @@ section {
   left: 0;
   top: 0;
   z-index: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  @include m.flexible(column, nowrap, null, center);
   opacity: 0;
   -webkit-transition: background-color 0.5s linear;
   -moz-transition: background-color 0.5s linear;
@@ -180,60 +166,38 @@ section {
   transition: background-color 0.5s linear;
   // filter: blur(2px);
 
-  &.next {
-    // opacity: 0;
-
-    .home & {
-      clip-path: url(#clip-home);
-    }
-
-    .dialogo & {
-      clip-path: url(#clip-dialogo);
-    }
-
-    .territorios & {
-      clip-path: url(#clip-territorios);
-    }
-
-    .resistencias & {
-      clip-path: url(#clip-resistencias);
-    }
-
-    .fuerza & {
-      clip-path: url(#clip-fuerza);
-    }
-
-    .naciones & {
-      clip-path: url(#clip-naciones);
-    }
-  }
-
-  .home & {
+  .container--home & {
     background-color: $gray0;
+    clip-path: url(#clipPath-home);
   }
 
-  .dialogo & {
+  .container--dialogo & {
     background-color: $gray1;
+    clip-path: url(#clipPath-dialogo);
 
     &.change {
       background-color: $color-green2;
     }
   }
 
-  .territorios & {
+  .container--territorios & {
     background-color: $gray2;
+    clip-path: url(#clipPath-territorios);
   }
 
-  .resistencias & {
+  .container--resistencias & {
     background-color: $gray3;
+    clip-path: url(#clipPath-resistencias);
   }
 
-  .fuerza & {
+  .container--fuerza & {
     background-color: $gray4;
+    clip-path: url(#clipPath-fuerza);
   }
 
-  .naciones & {
+  .container--naciones & {
     background-color: $gray5;
+    clip-path: url(#clipPath-naciones);
   }
 
   svg {
@@ -255,36 +219,35 @@ section {
     mask-repeat: no-repeat;
     mask-position: top center;
 
-    .home & {
-      mask-image: url("../images/terrain.svg");
-      -webkit-mask-image: url("../images/terrain.svg");
+    .container--home & {
+      mask-image: url('../images/terrain.svg');
+      -webkit-mask-image: url('../images/terrain.svg');
     }
 
-    .dialogo & {
-      mask-image: url("../images/terrain-dialogo.svg");
-      -webkit-mask-image: url("../images/terrain-dialogo.svg");
+    .container--dialogo & {
+      mask-image: url('../images/terrain-dialogo.svg');
+      -webkit-mask-image: url('../images/terrain-dialogo.svg');
     }
 
-    .fuerza & {
-      mask-image: url("../images/terrain-fuerza.svg");
-      -webkit-mask-image: url("../images/terrain-fuerza.svg");
+    .container--fuerza & {
+      mask-image: url('../images/terrain-fuerza.svg');
+      -webkit-mask-image: url('../images/terrain-fuerza.svg');
     }
 
-    .naciones & {
-      mask-image: url("../images/terrain-naciones.svg");
-      -webkit-mask-image: url("../images/terrain-naciones.svg");
+    .container--naciones & {
+      mask-image: url('../images/terrain-naciones.svg');
+      -webkit-mask-image: url('../images/terrain-naciones.svg');
     }
 
-    .resistencias & {
-      mask-image: url("../images/terrain-resistencias.svg");
-      -webkit-mask-image: url("../images/terrain-resistencias.svg");
+    .container--resistencias & {
+      mask-image: url('../images/terrain-resistencias.svg');
+      -webkit-mask-image: url('../images/terrain-resistencias.svg');
     }
 
-    .territorios & {
-      mask-image: url("../images/terrain-territorios.svg");
-      -webkit-mask-image: url("../images/terrain-territorios.svg");
+    .container-territorios & {
+      mask-image: url('../images/terrain-territorios.svg');
+      -webkit-mask-image: url('../images/terrain-territorios.svg');
     }
-
   }
 
   .terrainIn {
@@ -298,10 +261,8 @@ footer {
   width: 100%;
   height: 300px;
   background: #374b57;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 20vh;
+  @include m.flexible(column, nowrap, center, center);
 
   p {
     font-size: 1.5rem;
@@ -309,7 +270,6 @@ footer {
     font-weight: 100;
   }
 }
-
 
 /* ::selection {
   background-color: var(--negro);
@@ -333,28 +293,113 @@ footer {
   }
 } */
 
-.dialogoBody {
-  color: $color-green2;
+section {
+  width: 100%;
+  max-width: 1140px;
+  @include m.flexible(column, nowrap, center, center);
+  padding: 0 20px;
+  text-align: left;
+  position: relative;
 }
 
-h4 {
-  font-size: 2rem;
-  margin-bottom: 5vh;
+$paper1: rgba(255, 255, 255, 0.3);
+$paper2: rgba(255, 255, 255, 0.2);
+
+.curaduria {
+  // border: 1px solid red;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  padding: 50px 80px 50px 50px;
+  z-index: 100;
 }
 
-blockquote {
-  text-align: center;
-  margin-bottom: 10vh;
+.paper {
+  opacity: 0.6;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  background-color: rgba(223, 191, 76, 0.2);
 
-  h4 {
-    font-size: 2rem;
-    color: white;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    // opacity: 0;
+    background-image: linear-gradient(
+        180deg,
+        transparent 17%,
+        $paper2 18%,
+        $paper2 19%,
+        transparent 20%,
+        transparent 37%,
+        $paper2 38%,
+        $paper2 39%,
+        transparent 40%,
+        transparent 57%,
+        $paper2 58%,
+        $paper2 59%,
+        transparent 60%,
+        transparent 77%,
+        $paper2 78%,
+        $paper2 79%,
+        transparent 80%,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent 17%,
+        $paper2 18%,
+        $paper2 19%,
+        transparent 20%,
+        transparent 37%,
+        $paper2 38%,
+        $paper2 39%,
+        transparent 40%,
+        transparent 57%,
+        $paper2 58%,
+        $paper2 59%,
+        transparent 60%,
+        transparent 77%,
+        $paper2 78%,
+        $paper2 79%,
+        transparent 80%,
+        transparent
+      );
+    background-size: 80px 80px;
   }
 
-  p {
-    display: block;
-    color: $color-green2;
-    text-align: center;
-    width: 100%;
+  &:before {
+    // opacity: 0;
+    content: '';
+    position: absolute;
+    width: calc(100% + 31px);
+    height: calc(100% + 31px);
+    top: -16px;
+    left: -16px;
+    background-color: transparent;
+    background-image: linear-gradient(
+        180deg,
+        transparent 18%,
+        $paper1 19%,
+        $paper1 21%,
+        transparent 22%,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent 18%,
+        $paper1 19%,
+        $paper1 21%,
+        transparent 22%,
+        transparent
+      );
+    background-size: 80px 80px;
   }
 }

@@ -379,7 +379,7 @@ export const saludosStart = (container) => {
   // saludosPlay(true);
 
   ScrollTrigger.create({
-    markers: true,
+    // markers: true,
     scroller: scrollContainer,
     trigger: saludos,
     start: '50% 50%',
@@ -398,38 +398,9 @@ export const saludosStart = (container) => {
     onLeaveBack: () => {
       terrain.classList.remove('change');
     },
-
-    /* onEnter: () => {
-      gsap.to(terrain, {
-        backgroundColor: '#063916',
-        duration: 0.5,
-        ease: 'linear',
-      });
-    },
-    onLeave: () => {
-      gsap.to(terrain, {
-        backgroundColor: '#e1b924',
-        duration: 0.5,
-        ease: 'linear',
-      });
-    },
-    onEnterBack: () => {
-      gsap.to(terrain, {
-        backgroundColor: '#063916',
-        duration: 0.5,
-        ease: 'linear',
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(terrain, {
-        backgroundColor: '#e1b924',
-        duration: 0.5,
-        ease: 'linear',
-      });
-    }, */
   });
 
-  ScrollTrigger.create({
+  /* ScrollTrigger.create({
     // markers: true,
     scroller: scrollContainer,
     trigger: saludos,
@@ -446,5 +417,5 @@ export const saludosStart = (container) => {
     onLeave: saludosPause,
     onEnterBack: () => saludosPlay(true),
     onLeaveBack: saludosPause,
-  });
+  }); */
 };

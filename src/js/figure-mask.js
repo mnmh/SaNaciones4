@@ -18,7 +18,7 @@ const pathsShuffled = [...paths].sort(() => Math.random() - 0.5);
 const pathsRandom = Math.floor(Math.random() * pathsShuffled.length);
 
 export const figureMask = (container) => {
-  figures = container.querySelectorAll('.figureMask');
+  figures = container.querySelectorAll('.figure-mask');
   figures.forEach((figure, i) => {
     const svg = document.createElementNS(svgNs, 'svg');
     svg.xmlns = svgNs;
@@ -39,8 +39,8 @@ export const figureMask = (container) => {
     const image = figure.querySelector('img');
     const iconX =
       figure.querySelector('figcaption').offsetLeft +
-      figure.querySelector('.figIcon').offsetLeft +
-      figure.querySelector('.figIcon').offsetWidth / 2;
+      figure.querySelector('.figure-icon').offsetLeft +
+      figure.querySelector('.figure-icon').offsetWidth / 2;
 
     image.style.clipPath = `url(#clip${i})`;
 
@@ -61,8 +61,8 @@ export const resizeFigMask = () => {
     let image = figure.querySelector('img');
     let iconX =
       figure.querySelector('figcaption').offsetLeft +
-      figure.querySelector('.figIcon').offsetLeft +
-      figure.querySelector('.figIcon').offsetWidth / 2;
+      figure.querySelector('.figure-icon').offsetLeft +
+      figure.querySelector('.figure-icon').offsetWidth / 2;
 
     gsap.set(`#path${i}`, {
       x: iconX,

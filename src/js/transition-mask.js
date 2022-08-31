@@ -8,7 +8,9 @@ import { blobRandom } from './blobs.js';
 export const terrainMask = (container, name) => {
   return new Promise((done) => {
     //--
-    let maskNew = container.querySelector(`#${name}Mask`);
+    const terrain = container.querySelector('.terrain');
+    const maskNew = container.querySelector(`#clipPath-${name} path`);
+    const content = container.querySelector('.content');
     //--
     gsap
       .timeline({
@@ -25,7 +27,7 @@ export const terrainMask = (container, name) => {
           d: blobRandom[0],
         },
       })
-      .to(container.querySelector('.terrain'), {
+      .to(terrain, {
         opacity: 1,
         duration: 0.8,
         ease: 'power1.in',
@@ -57,10 +59,10 @@ export const terrainMask = (container, name) => {
         duration: 0.8,
         ease: 'power1.in',
         onComplete: () => {
-          container.querySelector('.terrain').classList.remove('next');
-          body.className = `${name}Body`;
+          terrain.style.clipPath = 'none';
+          body.className = `body--${name}`;
           gsap.fromTo(
-            container.querySelector('.content'),
+            content,
             { opacity: 0 },
             { opacity: 1, duration: 0.5, delay: 0.5 }
           );

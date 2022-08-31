@@ -10,7 +10,9 @@
 
     <include src="./partials/header.html"></include>
 
-    <div data-barba="container" data-barba-namespace="dialogo" class="container dialogo">
+    <div class="container container--dialogo"
+      data-barba="container"
+      data-barba-namespace="dialogo">
 
       <div data-scroll-container>
 
@@ -18,8 +20,8 @@
 
           <main>
 
-            <!-- Frase de apertura  -->
-            <section>
+            <div class="intro">
+
               <blockquote>
                 <p>
                   La palabra sin acción es vacía, la acción sin palabra es ciega, la palabra y la acción por fuera del espíritu de la comunidad son la muerte.
@@ -29,35 +31,44 @@
                 </cite>
               </blockquote>
 
-              <h1>Disposición al diálogo</h1>
+              <h1><span>Disposición al diálogo</span></h1>
+
+            </div>
+
+            <!-- Frase de apertura  -->
+            <section>
 
               <div class="curaduria">
-
+                <div class="paper"></div>
                 <p>
                   El diálogo se plantea como un intercambio horizontal entre personas que reconocen, entienden y valoran sus diferencias de pensamiento. En esta ocasión, la conversación gira en torno a la comprensión del mundo, la organización política, los conocimientos y las prácticas medicinales-espirituales de algunos pueblos indígenas, con el fin de seguir incentivando el diálogo sobre la memoria histórica del conflicto, que aún persiste, y de tejer caminos para sanar.
                 </p>
 
-                <figure class="figureMask">
-                  <img src="./images/minga.jpg" alt="Minga">
-                  <figcaption>
-                    <div aria-hidden="true" class="figIcon">
-                      <i icon-name="camera"></i>
-                    </div>
-                    Paisaje Catatumbo, Norte de Santander.
-                    <span>
-                      Foto: Mauricio Ramírez Vásquez, CNMH. 2021.
-                    </span>
-                  </figcaption>
-                </figure>
-
                 <p>
                   Alentar el diálogo entre pensamientos distintos permite transformar los imaginarios errados y desdibujar calificativos negativos sobre los otros. Nos invita a reconocernos como ciudadanos con diferencias en nuestra manera de ser, pensar, sentir y habitar el mundo, pero que pueden convivir y aprender de los demás, siempre a partir de acuerdos basados en el respeto, la tolerancia y la defensa de la vida.
                 </p>
-
               </div>
+
+              <figure class="figure-mask">
+                <img src="./images/minga.jpg"
+                  alt="Minga">
+                <figcaption>
+                  <div class="figure-icon"
+                    aria-hidden="true">
+                    <i icon-name="camera"></i>
+                  </div>
+                  Paisaje Catatumbo, Norte de Santander.
+                  <span>
+                    Foto: Mauricio Ramírez Vásquez, CNMH. 2021.
+                  </span>
+                </figcaption>
+              </figure>
+
+
             </section>
 
-            <section id="saludos">
+            <section class="section section--saludos"
+              id="saludos">
               <!-- Saludos de los pueblos -->
 
               <h2>
@@ -118,7 +129,7 @@
               <blockquote>
                 <p>
                   Weçx yuwekwe´ mantey fxizxenxi´s dxi´jas Üus kayatxijxa bakaçxteyuhpa pçukahmen.
-                  </h4>
+                </p>
                 <p class="toSpanish">
                   Bienvenidos a conocer el camino de los antepasados y a recordar las vivencias desde el corazón para nuestra pervivencia.
                 </p>
@@ -186,89 +197,185 @@
 
 
             <!-- <div class="container-fluid">
-          <div class="parallax left-top" style="top: -100px; left: -150px;">
-            <img src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/18_icono.svg" />
-          </div>
-          <div class="parallax right-top" style="top: -90px; right: -250px;">
-            <img class="animate-inv-rotate" src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/20_icono.svg" />
-          </div>
-          <div class="container sanaciones-content">
-            <div class="row">
-              <div class="col-md-12 animate-in">
-                <h3 class="white">
-                  
-                  <div class="divider"></div>
-                </h3>
+              <div class="parallax left-top"
+                style="top: -100px; left: -150px;">
+                <img src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/18_icono.svg" />
               </div>
-              <div class="offset-md-1 col-md-10 animate-in">
-                <ul class="nav nav-tabs" id="mapas" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="mapa1-tab" data-toggle="tab" href="#mapa1" role="tab"
-                      aria-controls="mapa1" aria-selected="true">Awá</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa2-tab" data-toggle="tab" href="#mapa2" role="tab" aria-controls="mapa2"
-                      aria-selected="false"> Barí </a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa3-tab" data-toggle="tab" href="#mapa3" role="tab" aria-controls="mapa3"
-                      aria-selected="false">Wiwa</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa4-tab" data-toggle="tab" href="#mapa4" role="tab" aria-controls="mapa4"
-                      aria-selected="true">Nasa</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa5-tab" data-toggle="tab" href="#mapa5" role="tab" aria-controls="mapa5"
-                      aria-selected="false"> Kamënts̈á </a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa6-tab" data-toggle="tab" href="#mapa6" role="tab" aria-controls="mapa6"
-                      aria-selected="false">Pasto </a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa7-tab" data-toggle="tab" href="#mapa7" role="tab" aria-controls="mapa7"
-                      aria-selected="false">Okaina</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa8-tab" data-toggle="tab" href="#mapa8" role="tab" aria-controls="mapa8"
-                      aria-selected="true">Bora</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa9-tab" data-toggle="tab" href="#mapa9" role="tab" aria-controls="mapa9"
-                      aria-selected="false">Uitoto</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="mapa10-tab" data-toggle="tab" href="#mapa10" role="tab" aria-controls="mapa10"
-                      aria-selected="false">Muinane</a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="mapa1" role="tabpanel" aria-labelledby="mapa1-tab"><img
-                      class="img-fluid" src="multimedia/1_DisposicionalDialogo/1_AWA.svg"></div>
-                  <div class="tab-pane fade" id="mapa2" role="tabpanel" aria-labelledby="mapa2-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/2_BARI.svg"></div>
-                  <div class="tab-pane fade" id="mapa3" role="tabpanel" aria-labelledby="mapa3-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/3_WIWA.svg"></div>
-                  <div class="tab-pane fade" id="mapa4" role="tabpanel" aria-labelledby="mapa4-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/4_NASA.svg"></div>
-                  <div class="tab-pane fade" id="mapa5" role="tabpanel" aria-labelledby="mapa5-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/5_KAMENTSA.svg"></div>
-                  <div class="tab-pane fade" id="mapa6" role="tabpanel" aria-labelledby="mapa6-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/6_PASTO.svg"></div>
-                  <div class="tab-pane fade" id="mapa7" role="tabpanel" aria-labelledby="mapa7-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/7_OCAINA.svg"></div>
-                  <div class="tab-pane fade" id="mapa8" role="tabpanel" aria-labelledby="mapa8-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/8_BORA.svg"></div>
-                  <div class="tab-pane fade" id="mapa9" role="tabpanel" aria-labelledby="mapa9-tab"><img class="img-fluid"
-                      src="multimedia/1_DisposicionalDialogo/9_UITOTO.svg"></div>
-                  <div class="tab-pane fade" id="mapa10" role="tabpanel" aria-labelledby="mapa10-tab"><img
-                      class="img-fluid" src="multimedia/1_DisposicionalDialogo/10_MUINANE.svg"></div>
+              <div class="parallax right-top"
+                style="top: -90px; right: -250px;">
+                <img class="animate-inv-rotate"
+                  src="multimedia/svg_iconografia/2_Disposicion_al_Dialogo/20_icono.svg" />
+              </div>
+              <div class="container sanaciones-content">
+                <div class="row">
+                  <div class="col-md-12 animate-in">
+                    <h3 class="white">
+
+                      <div class="divider"></div>
+                    </h3>
+                  </div>
+                  <div class="offset-md-1 col-md-10 animate-in">
+                    <ul class="nav nav-tabs"
+                      id="mapas"
+                      role="tablist">
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link active"
+                          id="mapa1-tab"
+                          data-toggle="tab"
+                          href="#mapa1"
+                          role="tab"
+                          aria-controls="mapa1"
+                          aria-selected="true">Awá</a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa2-tab"
+                          data-toggle="tab"
+                          href="#mapa2"
+                          role="tab"
+                          aria-controls="mapa2"
+                          aria-selected="false"> Barí </a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa3-tab"
+                          data-toggle="tab"
+                          href="#mapa3"
+                          role="tab"
+                          aria-controls="mapa3"
+                          aria-selected="false">Wiwa</a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa4-tab"
+                          data-toggle="tab"
+                          href="#mapa4"
+                          role="tab"
+                          aria-controls="mapa4"
+                          aria-selected="true">Nasa</a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa5-tab"
+                          data-toggle="tab"
+                          href="#mapa5"
+                          role="tab"
+                          aria-controls="mapa5"
+                          aria-selected="false"> Kamënts̈á </a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa6-tab"
+                          data-toggle="tab"
+                          href="#mapa6"
+                          role="tab"
+                          aria-controls="mapa6"
+                          aria-selected="false">Pasto </a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa7-tab"
+                          data-toggle="tab"
+                          href="#mapa7"
+                          role="tab"
+                          aria-controls="mapa7"
+                          aria-selected="false">Okaina</a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa8-tab"
+                          data-toggle="tab"
+                          href="#mapa8"
+                          role="tab"
+                          aria-controls="mapa8"
+                          aria-selected="true">Bora</a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa9-tab"
+                          data-toggle="tab"
+                          href="#mapa9"
+                          role="tab"
+                          aria-controls="mapa9"
+                          aria-selected="false">Uitoto</a>
+                      </li>
+                      <li class="nav-item"
+                        role="presentation">
+                        <a class="nav-link"
+                          id="mapa10-tab"
+                          data-toggle="tab"
+                          href="#mapa10"
+                          role="tab"
+                          aria-controls="mapa10"
+                          aria-selected="false">Muinane</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content"
+                      id="myTabContent">
+                      <div class="tab-pane fade show active"
+                        id="mapa1"
+                        role="tabpanel"
+                        aria-labelledby="mapa1-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/1_AWA.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa2"
+                        role="tabpanel"
+                        aria-labelledby="mapa2-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/2_BARI.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa3"
+                        role="tabpanel"
+                        aria-labelledby="mapa3-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/3_WIWA.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa4"
+                        role="tabpanel"
+                        aria-labelledby="mapa4-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/4_NASA.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa5"
+                        role="tabpanel"
+                        aria-labelledby="mapa5-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/5_KAMENTSA.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa6"
+                        role="tabpanel"
+                        aria-labelledby="mapa6-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/6_PASTO.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa7"
+                        role="tabpanel"
+                        aria-labelledby="mapa7-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/7_OCAINA.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa8"
+                        role="tabpanel"
+                        aria-labelledby="mapa8-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/8_BORA.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa9"
+                        role="tabpanel"
+                        aria-labelledby="mapa9-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/9_UITOTO.svg"></div>
+                      <div class="tab-pane fade"
+                        id="mapa10"
+                        role="tabpanel"
+                        aria-labelledby="mapa10-tab"><img class="img-fluid"
+                          src="multimedia/1_DisposicionalDialogo/10_MUINANE.svg"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div> -->
+            </div> -->
 
             <!-- Cantos del pueblo de la chorrera  -->
             <section>
@@ -392,7 +499,8 @@
               <div class="datos">
                 <!-- <button class="btn btn-success mb-2" type="button" data-toggle="collapse" data-target="#viewStat" aria-expanded="false" aria-controls="viewStat"> <img src="multimedia/icono_INTE_orange.svg"> Explora los datos </button> -->
 
-                <div class="collapsing" id="viewStat">
+                <div class="collapsing"
+                  id="viewStat">
                   <br>
                   <!-- <img src="multimedia/Icono_bar-chart.svg"> Cantidad de hechos violentos vs período de tiempo -->
                   <div class="divider"></div>
@@ -452,24 +560,35 @@
 
       </div>
 
-      <div aria-hidden="true" class="terrainUp">
-        <div id="saludosUp" class="saludosAlt"></div>
+      <div class="terrainUp"
+        aria-hidden="true">
+        <div class="saludosAlt"
+          id="saludosUp"></div>
       </div>
 
-      <div aria-hidden="true" class="terrain next">
+      <div class="terrain"
+        aria-hidden="true">
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100">
           <defs>
-            <clipPath id="clip-dialogo">
-              <path id="dialogoMask" fill="#fff" d="M52.3,-13.7C61.1,10.3,57.1,41.7,39.7,54.2C22.4,66.7,-8.4,60.3,-30.2,43.9C-52,27.5,-64.9,1.1,-58.4,-19.6C-51.9,-40.4,-25.9,-55.5,-2.1,-54.8C21.7,-54.1,43.4,-37.6,52.3,-13.7Z" />
+            <clipPath id="clipPath-dialogo">
+              <path fill="#fff"
+                d="M52.3,-13.7C61.1,10.3,57.1,41.7,39.7,54.2C22.4,66.7,-8.4,60.3,-30.2,43.9C-52,27.5,-64.9,1.1,-58.4,-19.6C-51.9,-40.4,-25.9,-55.5,-2.1,-54.8C21.7,-54.1,43.4,-37.6,52.3,-13.7Z" />
             </clipPath>
           </defs>
         </svg>
 
-        <div id="saludosDown" class="saludosAlt">
+        <div class="saludosAlt"
+          id="saludosDown">
           <div id="saludoBox">
-            <svg xmlns="http://www.w3.org/2000/svg" id="saludoBlob" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-              <path id="saludoPath" d="M47.8,-48.2C63.8,-31.7,80.1,-15.9,81.5,1.4C82.9,18.7,69.5,37.4,53.4,52.3C37.4,67.2,18.7,78.4,-2.1,80.6C-23,82.7,-46,75.8,-62,60.9C-78,46,-86.9,23,-85.2,1.8C-83.4,-19.4,-70.9,-38.9,-54.9,-55.4C-38.9,-71.8,-19.4,-85.3,-1.8,-83.5C15.9,-81.7,31.7,-64.7,47.8,-48.2Z" transform="translate(100 100)" />
+            <svg xmlns="http://www.w3.org/2000/svg"
+              id="saludoBlob"
+              viewBox="0 0 200 200"
+              preserveAspectRatio="xMidYMid meet">
+              <path id="saludoPath"
+                d="M47.8,-48.2C63.8,-31.7,80.1,-15.9,81.5,1.4C82.9,18.7,69.5,37.4,53.4,52.3C37.4,67.2,18.7,78.4,-2.1,80.6C-23,82.7,-46,75.8,-62,60.9C-78,46,-86.9,23,-85.2,1.8C-83.4,-19.4,-70.9,-38.9,-54.9,-55.4C-38.9,-71.8,-19.4,-85.3,-1.8,-83.5C15.9,-81.7,31.7,-64.7,47.8,-48.2Z"
+                transform="translate(100 100)" />
             </svg>
           </div>
         </div>

@@ -1,0 +1,52 @@
+// display:flex mixin
+@mixin flexible($direction, $corte, $just, $align) {
+  display: flex;
+  flex-flow: $direction $corte;
+  justify-content: $just;
+  align-items: $align;
+}
+
+@mixin borde($color) {
+  border: 1px solid $color;
+}
+
+$color1: #91a061;
+$color2: #d2aa43;
+$color3: #5c987d;
+$color4: #e6661d;
+$color5: #063916;
+$color6: #305bd1;
+$color7: #d1309c;
+$colorTxt1: #052b11;
+$colorTxt2: #052b11;
+
+$ejes: (
+  home: (
+    primary: $color1,
+    secundary: pink,
+  ),
+  dialogo: (
+    primary: $color2,
+    secundary: pink,
+  ),
+  territorios: (
+    primary: $color3,
+    secundary: pink,
+  ),
+  resistencias: (
+    primary: $color4,
+    secundary: pink,
+  ),
+  fuerza: (
+    primary: $color5,
+    secundary: pink,
+  ),
+  naciones: (
+    primary: $color6,
+    secundary: pink,
+  ),
+  extra: (
+    primary: $color7,
+    secundary: pink,
+  ),
+);
