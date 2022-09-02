@@ -7,34 +7,3 @@
   justify-content: $just;
   align-items: $align;
 }
-
-$ejes: (
-  home: (
-    primary: c.$color1,
-    secundary: pink,
-  ),
-  dialogo: (
-    primary: c.$color2,
-    secundary: pink,
-  ),
-  territorios: (
-    primary: c.$color3,
-    secundary: pink,
-  ),
-  resistencias: (
-    primary: c.$color4,
-    secundary: pink,
-  ),
-  fuerza: (
-    primary: c.$color5,
-    secundary: pink,
-  ),
-  naciones: (
-    primary: c.$color6,
-    secundary: pink,
-  ),
-  extra: (
-    primary: c.$color7,
-    secundary: pink,
-  ),
-);

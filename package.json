@@ -10,18 +10,22 @@
     "deploy": "gh-pages -d public",
     "reinstall": "rimraf .parcel-cache && rimraf dist && rimraf public && rimraf node_modules && npm install"
   },
+  "browserslist": [
+    "defaults and supports es6-module",
+    "maintained node versions"
+  ],
   "keywords": [],
   "author": "Laboratorio digital 2022 - Museo de Memoria de Colombia",
   "license": "ISC",
   "devDependencies": {
     "@barba/core": "^2.9.7",
-    "@parcel/transformer-sass": "^2.6.2",
-    "add-to-calendar-button": "^1.10.0",
+    "@parcel/transformer-sass": "^2.7.0",
+    "add-to-calendar-button": "^1.14.6",
     "gh-pages": "^4.0.0",
-    "gsap": "^3.10.4",
+    "gsap": "^3.11.0",
     "locomotive-scroll": "^4.1.4",
-    "lucide": "^0.72.0",
-    "parcel": "^2.6.2",
+    "lucide": "^0.88.0",
+    "parcel": "^2.7.0",
     "posthtml-include": "^1.7.4"
   },
   "dependencies": {

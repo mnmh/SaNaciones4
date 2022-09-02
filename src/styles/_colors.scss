@@ -1,9 +1,30 @@
-$color1: #91a061;
-$color2: #d2aa43;
-$color3: #5c987d;
-$color4: #e6661d;
-$color5: #063916;
-$color6: #305bd1;
-$color7: #d1309c;
-$colorTxt1: #052b11;
-$colorTxt2: #052b11;
+$clr-home: #91a061;
+$clr-dialogo: #d2aa43;
+$clr-territorios: #5c987d;
+$clr-resistencias: #e6661d;
+$clr-fuerza: #063916;
+$clr-naciones: #305bd1;
+$clr-alt: #d1309c;
+$clr-Txt: #052b11;
+$clr-Txt-alt: #052b11;
+
+$themes: (
+  home: (
+    base: $clr-home,
+  ),
+  dialogo: (
+    base: $clr-dialogo,
+  ),
+  territorios: (
+    base: $clr-territorios,
+  ),
+  resistencias: (
+    base: $clr-resistencias,
+  ),
+  fuerza: (
+    base: $clr-fuerza,
+  ),
+  naciones: (
+    base: $clr-naciones,
+  ),
+);
