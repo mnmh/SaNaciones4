@@ -383,7 +383,7 @@ export const saludosStart = (container) => {
     scroller: scrollContainer,
     trigger: saludos,
     start: '50% 50%',
-    end: '+=1000 50%',
+    end: '80% 50%',
     pin: true,
     pinSpacing: true,
     onEnter: () => {
@@ -400,7 +400,7 @@ export const saludosStart = (container) => {
     },
   });
 
-  /* ScrollTrigger.create({
+  ScrollTrigger.create({
     // markers: true,
     scroller: scrollContainer,
     trigger: saludos,
@@ -417,5 +417,5 @@ export const saludosStart = (container) => {
     onLeave: saludosPause,
     onEnterBack: () => saludosPlay(true),
     onLeaveBack: saludosPause,
-  }); */
+  });
 };

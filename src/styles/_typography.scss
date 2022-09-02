@@ -55,11 +55,12 @@ cite {
   font-size: clamp(var(--min), var(--val), var(--max));
 }
 
-/* h1 {
-  --min: 2rem; // minimum value
-  --val: 5vw; // preferred value = 5% viewport width
-  --max: 3rem; // maximum value
-} */
+h1,
+h2,
+h3,
+h4 {
+  max-width: 70%;
+}
 
 h1 {
   font-family: $font-curaduria;
@@ -88,9 +89,10 @@ h1 {
 
 h2 {
   font-family: $font-curaduria;
-  --min: 1.5rem;
-  --val: 4vw;
-  --max: 2.25rem;
+  --min: 4rem;
+  --val: 5vw;
+  --max: 6rem;
+  margin-bottom: 10vh;
 }
 
 h3,
@@ -99,6 +101,7 @@ h4 {
   --min: 1.5rem;
   --val: 4vw;
   --max: 2.25rem;
+  margin-bottom: 2vh;
 }
 
 p {
@@ -114,8 +117,8 @@ p {
   padding-bottom: 2.5rem;
 
   .curaduria & {
-    --min: 1rem;
-    --val: calc(0.4vw + 0.6rem);
+    --min: 1.1rem;
+    --val: calc(0.5vw + 0.9rem);
     --max: 2rem;
     font-family: $font-curaduria;
     font-style: normal;
