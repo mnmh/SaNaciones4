@@ -5,26 +5,32 @@ $clr-resistencias: #e6661d;
 $clr-fuerza: #063916;
 $clr-naciones: #305bd1;
 $clr-alt: #d1309c;
-$clr-Txt: #052b11;
-$clr-Txt-alt: #052b11;
+$clr-txt: #052b11;
+$clr-txt-alt: #ffefd1;
 
 $themes: (
   home: (
     base: $clr-home,
+    text: $clr-txt-alt,
   ),
   dialogo: (
     base: $clr-dialogo,
+    text: $clr-txt,
   ),
   territorios: (
     base: $clr-territorios,
+    text: $clr-txt-alt,
   ),
   resistencias: (
     base: $clr-resistencias,
+    text: $clr-txt-alt,
   ),
   fuerza: (
     base: $clr-fuerza,
+    text: $clr-txt-alt,
   ),
   naciones: (
     base: $clr-naciones,
+    text: $clr-txt-alt,
   ),
 );

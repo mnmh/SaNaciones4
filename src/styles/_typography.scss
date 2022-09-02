@@ -131,9 +131,9 @@ blockquote {
   @include m.flexible(column, nowrap, null, flex-start);
 
   p {
-    --min: 2.5rem;
-    --val: calc(1vw + 2rem);
-    --max: 4rem;
+    --min: 2rem;
+    --val: calc(1vw + 1rem);
+    --max: 3rem;
     width: 100%;
     font-family: $font-quotes;
     font-weight: 400;
