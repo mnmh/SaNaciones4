@@ -294,6 +294,12 @@ section {
   padding: 4vh 0;
 }
 
+.container--home {
+  img {
+    max-width: 300px;
+  }
+}
+
 @each $eje, $theme in c.$themes {
   .body--#{$eje} {
     background-color: map-get($theme, base);
