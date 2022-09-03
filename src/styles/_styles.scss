@@ -20,10 +20,9 @@ body {
 }
 
 figure {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-end;
+  @include m.flexible(column, $align: flex-end);
   margin-bottom: 10vh;
+  width: 100%;
 
   img {
     width: 100%;
@@ -70,13 +69,11 @@ figure {
         top: (v.$iconCaption + v.$imgBottom) * -1;
       }
     }
+  }
 
-    img {
-      // clip-path: url(#shape);
-      // -webkit-clip-path: url(#shape);
-      /* transform: translateZ(0);
-      will-change: transform; */
-    }
+  .intro & {
+    position: absolute;
+    width: 100%;
   }
 }
 
@@ -98,7 +95,7 @@ figure {
 }
 
 main {
-  @include m.flexible(column, nowrap, null, center);
+  @include m.flexible(column, $just: null);
 }
 
 .intro {
@@ -106,7 +103,7 @@ main {
   width: 100vw;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
-  @include m.flexible(column, nowrap, center, center);
+  @include m.flexible(column);
   transition: height 0.8s ease-out;
   margin-bottom: 50vh;
 }
@@ -119,7 +116,7 @@ main {
   left: 0;
   top: 0;
   z-index: 500;
-  @include m.flexible(column, nowrap, null, center);
+  @include m.flexible(column, $just: null);
 }
 
 .terrain {
@@ -130,7 +127,7 @@ main {
   left: 0;
   top: 0;
   z-index: 0;
-  @include m.flexible(column, nowrap, null, center);
+  @include m.flexible(column, $just: null);
   opacity: 0;
   transition: background-color 0.5s linear;
   // filter: blur(2px);
@@ -164,7 +161,7 @@ footer {
   // height: 400px;
   margin-top: 20vh;
   padding-top: 10vh;
-  @include m.flexible(column, nowrap, center, center);
+  @include m.flexible(column);
 
   p {
     font-size: 1.5rem;
@@ -209,7 +206,7 @@ footer {
 section {
   width: 100%;
   max-width: 1140px;
-  @include m.flexible(column, nowrap, center, center);
+  @include m.flexible(column);
   padding: 20vh 20px 10vh 20px;
   text-align: left;
   position: relative;
@@ -285,12 +282,12 @@ section {
 }
 
 .canto {
-  @include m.flexible(column, nowrap, center, center);
+  @include m.flexible(column);
   padding: 5vh 0;
 }
 
 .media {
-  @include m.flexible(column, nowrap, center, center);
+  @include m.flexible(column);
   padding: 4vh 0;
 }
 

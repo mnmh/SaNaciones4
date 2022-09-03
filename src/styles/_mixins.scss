@@ -1,7 +1,7 @@
 @use 'colors' as c;
 
 // display:flex mixin
-@mixin flexible($direction, $corte, $just, $align) {
+@mixin flexible($direction, $corte: nowrap, $just: center, $align: center) {
   display: flex;
   flex-flow: $direction $corte;
   justify-content: $just;
