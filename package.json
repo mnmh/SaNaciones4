@@ -1,7 +1,9 @@
 {
   "name": "sanaciones-web",
   "version": "4.0.0",
+  "source": "src/index.html",
   "description": "App SaNaciones, caminos de resistencia",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel src/index.html --open",
     "prebuild": "rimraf public",
@@ -10,10 +12,6 @@
     "deploy": "gh-pages -d public",
     "reinstall": "rimraf .parcel-cache && rimraf dist && rimraf public && rimraf node_modules && npm install"
   },
-  "browserslist": [
-    "defaults and supports es6-module",
-    "maintained node versions"
-  ],
   "keywords": [],
   "author": "Laboratorio digital 2022 - Museo de Memoria de Colombia",
   "license": "ISC",

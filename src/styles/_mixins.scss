@@ -7,3 +7,16 @@
   justify-content: $just;
   align-items: $align;
 }
+
+//-- curaduria Background
+$paperWH: 25px;
+
+@mixin paperGrid($axis, $color, $paperLine: 1px, $paperSize: $paperWH) {
+  background: repeating-linear-gradient(
+    $axis,
+    $color,
+    $color $paperLine,
+    transparent $paperLine,
+    transparent $paperSize
+  );
+}

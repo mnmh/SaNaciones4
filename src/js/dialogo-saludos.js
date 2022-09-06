@@ -383,24 +383,27 @@ export const saludosStart = (container) => {
     scroller: scrollContainer,
     trigger: saludos,
     start: '50% 50%',
+    endTrigger: container.querySelector('.saludos-box'),
     end: '80% 50%',
     pin: true,
-    pinSpacing: true,
+    pinSpacing: false,
+    preventOverlaps: true,
+    fastScrollEnd: true,
     onEnter: () => {
-      terrain.classList.add('change');
+      terrain.classList.add('color-alt');
     },
     onLeave: () => {
-      terrain.classList.remove('change');
+      terrain.classList.remove('color-alt');
     },
     onEnterBack: () => {
-      terrain.classList.add('change');
+      terrain.classList.add('color-alt');
     },
     onLeaveBack: () => {
-      terrain.classList.remove('change');
+      terrain.classList.remove('color-alt');
     },
   });
 
-  ScrollTrigger.create({
+  /* ScrollTrigger.create({
     // markers: true,
     scroller: scrollContainer,
     trigger: saludos,
@@ -417,5 +420,5 @@ export const saludosStart = (container) => {
     onLeave: saludosPause,
     onEnterBack: () => saludosPlay(true),
     onLeaveBack: saludosPause,
-  });
+  }); */
 };

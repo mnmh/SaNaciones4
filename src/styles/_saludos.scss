@@ -1,25 +1,30 @@
+@use 'colors' as c;
 @use 'mixins' as m;
 
-#saludos,
+.saludos-box {
+  // border: 1px solid white;
+  height: 250vh;
+  padding: 0;
+  margin: 0;
+}
+
+.saludos,
 .saludosAlt {
   width: 95vw;
   height: 80vh;
   max-width: 1400px;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  @include m.flexible(column);
   padding: 0;
 }
 
-#saludos {
-  margin: 10vh 0;
+.saludos {
+  // margin: 10vh 0;
   // border: 1px solid blue;
 
   h2 {
-    // opacity: 0;
     pointer-events: none;
-    // position: absolute;
-    // bottom: 10%;
+    margin-bottom: 0;
+    color: map-get(map-get(c.$themes, dialogo), base);
   }
 
   #saludoControls {
@@ -44,7 +49,6 @@
         pointer-events: auto;
       }
     }
-
   }
 
   blockquote {
@@ -75,8 +79,6 @@
   z-index: 100;
   pointer-events: none;
   // border: 1px solid red;
-
-
 
   .saludo {
     position: absolute;

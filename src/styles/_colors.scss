@@ -11,31 +11,37 @@ $clr-txt-alt: #ffefd1;
 $themes: (
   home: (
     base: $clr-home,
+    base-alt: $clr-fuerza,
     text: $clr-txt-alt,
     text-alt: $clr-txt,
   ),
   dialogo: (
     base: $clr-dialogo,
+    base-alt: $clr-fuerza,
     text: $clr-txt,
     text-alt: $clr-txt-alt,
   ),
   territorios: (
     base: $clr-territorios,
+    base-alt: $clr-fuerza,
     text: $clr-txt-alt,
     text-alt: $clr-txt,
   ),
   resistencias: (
     base: $clr-resistencias,
+    base-alt: $clr-fuerza,
     text: $clr-txt-alt,
     text-alt: $clr-txt,
   ),
   fuerza: (
     base: $clr-fuerza,
+    base-alt: $clr-fuerza,
     text: $clr-txt-alt,
     text-alt: $clr-txt,
   ),
   naciones: (
     base: $clr-naciones,
+    base-alt: $clr-fuerza,
     text: $clr-txt-alt,
     text-alt: $clr-txt,
   ),

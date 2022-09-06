@@ -93,6 +93,13 @@ h2 {
   --val: 5vw;
   --max: 6rem;
   margin-bottom: 10vh;
+
+  .saludos & {
+    font-family: $font-quotes;
+    font-style: italic;
+    font-weight: 300;
+    font-stretch: 100%;
+  }
 }
 
 h3,
