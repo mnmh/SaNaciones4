@@ -150,7 +150,7 @@ main {
   mask-size: cover;
   mask-repeat: no-repeat;
   mask-position: top center;
-  transition: background-color 1s;
+  transition: background-color 0.6s 0.3s;
 }
 
 .terrain-curves {
@@ -310,20 +310,24 @@ iframe {
     color: map-get($theme, text);
 
     h2 {
-      color: map-get($theme, text-alt);
+      color: map-get($theme, base-alt);
+
+      .color-alt & {
+        color: map-get($theme, base);
+      }
     }
 
     .terrain {
       background-color: map-get($theme, base);
       clip-path: url(#clipPath-#{$eje});
 
-      &.color-alt {
+      .color-alt & {
         background-color: map-get($theme, base-alt);
 
         .terrain-curves {
           background-color: color.adjust(
             map-get($theme, base-alt),
-            $lightness: -2%
+            $lightness: -3%
           );
         }
       }

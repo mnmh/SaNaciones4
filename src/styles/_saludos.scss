@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'colors' as c;
 @use 'mixins' as m;
 
@@ -18,13 +19,11 @@
 }
 
 .saludos {
-  // margin: 10vh 0;
-  // border: 1px solid blue;
+  // border: 1px solid aqua;
 
   h2 {
     pointer-events: none;
     margin-bottom: 0;
-    color: map-get(map-get(c.$themes, dialogo), base);
   }
 
   #saludoControls {
@@ -78,52 +77,44 @@
   top: 0;
   z-index: 100;
   pointer-events: none;
-  // border: 1px solid red;
+  // border: 1px solid magenta;
+}
 
-  .saludo {
-    position: absolute;
-    z-index: 10;
-    width: 8vw;
-    height: 8vw;
-    cursor: pointer;
-    pointer-events: none;
-    // border: 1px solid blue;
+.saludo {
+  position: absolute;
+  z-index: 10;
+  width: 8vw;
+  height: 8vw;
+  cursor: pointer;
+  pointer-events: none;
+  // border: 1px solid blue;
 
-    .saludoSvg {
-      width: 100%;
-      height: auto;
-
-      path {
-        fill: DarkOliveGreen;
-        opacity: 0;
-      }
-    }
-
-    &.active {
-      pointer-events: auto;
-    }
+  svg {
+    width: 100%;
+    height: auto;
   }
+
+  path {
+    fill: color.adjust(
+      map-get(map-get(c.$themes, dialogo), base),
+      $lightness: 10%
+    );
+    fill-opacity: 0;
+  }
+
+  &.active {
+    pointer-events: auto;
+  }
+}
+
+.saludoGlow {
+  filter: blur(30px);
+  // border: 1px solid magenta;
 }
 
 #saludosDown {
   pointer-events: none;
-  mix-blend-mode: multiply;
-
-  .saludo {
-    cursor: default;
-    pointer-events: none;
-    opacity: 0.8;
-
-    .saludoSvg {
-      width: 100%;
-      height: auto;
-
-      path {
-        fill: DarkOliveGreen;
-        opacity: 0;
-      }
-    }
-  }
+  mix-blend-mode: color-dodge;
 
   #saludoBox {
     position: absolute;

@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { scroll } from './smooth.js';
 
 //--
-import { create } from './variables.js';
+import { body, create } from './variables.js';
 import { blobs } from './blobs.js';
 
 //--
@@ -16,11 +16,13 @@ let [
   quotes,
   pos,
   blobsShuffled,
-  saludosDownAll,
-  pathsAll,
+  saludosPoints,
+  pointsPaths,
+  saludosGlows,
+  glowsPaths,
   saludosMov,
-  saludosUpAll,
-] = [[], [], [], [], [], [], []];
+  saludosClicks,
+] = [[], [], [], [], [], [], [], [], []];
 let indexOn,
   indexOff,
   controls,
@@ -32,7 +34,7 @@ let indexOn,
   saludoPath,
   saludosTitle;
 
-const disarray = () => {
+const posDisorder = () => {
   pos = [
     {
       left: `${gsap.utils.random(5, 30, 1)}%`,
@@ -171,45 +173,23 @@ const blobRandom = () => {
 };
 const blobTime = gsap.utils.random(2, 4, 0.5, true);
 
+const pathOn = gsap.timeline({ paused: true });
+
 const saludosPlay = (create) => {
   if (create == true) {
-    disarray();
-    saludosDownAll.forEach((saludo, i) => {
-      gsap.set([saludo, saludosUpAll[i]], {
+    posDisorder();
+    saludosPoints.forEach((saludoPoint, i) => {
+      gsap.set([saludoPoint, saludosGlows[i], saludosClicks[i]], {
         left: () => pos[i].left,
         top: () => pos[i].top,
       });
+      gsap.set([pointsPaths[i], glowsPaths[i]], { attr: { d: blobRandom() } });
     });
-    pathsAll.forEach((path) => {
-      gsap.set(path, { attr: { d: blobRandom() } });
-    });
-    gsap.to('.saludo path', {
-      transformOrigin: '50% 50%',
-      opacity: 1,
-      scale: 1,
-      duration: 0.5,
-      delay: 0.1,
-      stagger: {
-        each: 0.15,
-        from: 'random',
-        ease: 'power1.out',
-      },
-    });
+    pathOn.restart(true, false);
   } else {
-    gsap.to('.saludo path', {
-      transformOrigin: '50% 50%',
-      opacity: 1,
-      scale: 1,
-      duration: 0.5,
-      delay: 0.1,
-      stagger: {
-        each: 0.15,
-        from: 'random',
-        ease: 'power1.out',
-      },
-    });
+    pathOn.restart(true, false);
   }
-  saludosUpAll.forEach((saludo) => {
+  saludosClicks.forEach((saludo) => {
     saludo.classList.add('active');
   });
 
@@ -219,23 +199,20 @@ const saludosPlay = (create) => {
 };
 
 const saludosPause = () => {
-  saludosUpAll.forEach((saludo) => {
+  saludosClicks.forEach((saludo) => {
     saludo.classList.remove('active');
   });
   saludosMov.forEach((mov) => {
     mov.pause();
   });
-  gsap.to('.saludo path', {
-    opacity: 0,
-    scale: 0.2,
-    duration: 0.5,
-  });
+  pathOn.reverse();
 };
 
 //--
 
 export const saludosStart = (container) => {
   const saludos = container.querySelector('#saludos');
+  const saludosBox = container.querySelector('.saludos-box');
   saludosTitle = container.querySelector('#saludos h2');
   const saludosAlt = container.querySelectorAll('.saludosAlt');
   const saludosUp = container.querySelector('#saludosUp');
@@ -252,29 +229,34 @@ export const saludosStart = (container) => {
   closeBtn = container.querySelector('#saludoClose');
 
   quotes.forEach((quote, i) => {
-    const saludoUp = create('div');
-    saludoUp.ariaHidden = 'true';
-    saludoUp.classList.add('saludo');
-    const saludoDown = create('div');
-    saludoDown.ariaHidden = 'true';
-    saludoDown.classList.add('saludo');
+    const saludoClick = create('div');
+    saludoClick.classList.add('saludo');
+    saludosUp.appendChild(saludoClick);
+    saludosClicks.push(saludoClick);
 
+    // const saludoWrap = create('div');
+    // saludoWrap.classList.add('saludo');
+    const saludoPoint = create('div');
+    saludoPoint.classList.add('saludo', 'saludoPoint');
     const svg = document.createElementNS(svgNs, 'svg');
     svg.setAttribute('viewBox', '0 0 200 200');
     svg.setAttribute('xmlns', svgNs);
-    svg.classList.add('saludoSvg');
     const path = document.createElementNS(svgNs, 'path');
     path.setAttribute('d', blobs[i]);
     path.setAttribute('transform', 'translate(100 100)');
 
-    saludosUp.appendChild(saludoUp);
+    saludosDown.appendChild(saludoPoint);
+    saludoPoint.appendChild(svg);
     svg.appendChild(path);
-    saludoDown.appendChild(svg);
-    saludosDown.appendChild(saludoDown);
 
-    saludosDownAll.push(saludoDown);
-    pathsAll.push(path);
-    saludosUpAll.push(saludoUp);
+    const saludoGlow = saludoPoint.cloneNode(true);
+    saludoGlow.classList.replace('saludoPoint', 'saludoGlow');
+    saludoPoint.after(saludoGlow);
+
+    saludosPoints.push(saludoPoint);
+    pointsPaths.push(path);
+    saludosGlows.push(saludoGlow);
+    glowsPaths.push(saludoGlow.querySelector('path'));
 
     let newPath = blobs[Math.floor(Math.random() * blobs.length)];
     let newDuration = blobTime();
@@ -293,20 +275,19 @@ export const saludosStart = (container) => {
         newDuration = () => blobTime();
       },
     });
+    saludosMov.push(mov);
 
     gsap.set(saludosAlt, {
       yPercent: -50,
     });
 
-    gsap.set([saludoDown, saludoUp], {
+    gsap.set([saludoClick, saludoPoint, saludoGlow], {
       xPercent: -50,
       yPercent: -50,
     });
 
-    saludosMov.push(mov);
-
-    saludoUp.addEventListener('click', () => {
-      indexOn = saludosUpAll.findIndex((x) => x === saludoUp);
+    saludoClick.addEventListener('click', () => {
+      indexOn = saludosClicks.findIndex((x) => x === saludoClick);
 
       const center = ((window.innerHeight - saludos.offsetHeight) / 2) * -1;
       scroll.scrollTo(saludos, {
@@ -369,6 +350,37 @@ export const saludosStart = (container) => {
     });
   });
 
+  gsap.set('.saludoPoint path', {
+    transformOrigin: '50% 50%',
+    scale: 0.3,
+    fillOpacity: 0,
+  });
+  gsap.set('.saludoGlow path', {
+    transformOrigin: '50% 50%',
+    scale: 0.3,
+    fillOpacity: 0,
+  });
+
+  pathOn
+    .to(pointsPaths, {
+      fillOpacity: 1,
+      scale: 1,
+      duration: 0.5,
+      ease: 'sine.inOut',
+      stagger: 0.5,
+    })
+    .to(
+      glowsPaths,
+      {
+        fillOpacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: 'sine.inOut',
+        stagger: 0.5,
+      },
+      '<0.2'
+    );
+
   gsap.set(saludoBox, {
     left: 0,
     top: 0,
@@ -376,49 +388,48 @@ export const saludosStart = (container) => {
     yPercent: -50,
   });
 
-  // saludosPlay(true);
+  ScrollTrigger.create({
+    // markers: true,
+    scroller: scrollContainer,
+    trigger: saludos,
+    start: '50% 50%',
+    endTrigger: saludosBox,
+    end: '80% 50%',
+    onEnter: () => {
+      body.classList.add('color-alt');
+    },
+    onLeave: () => {
+      body.classList.remove('color-alt');
+    },
+    onEnterBack: () => {
+      body.classList.add('color-alt');
+    },
+    onLeaveBack: () => {
+      body.classList.remove('color-alt');
+    },
+  });
 
   ScrollTrigger.create({
     // markers: true,
     scroller: scrollContainer,
     trigger: saludos,
     start: '50% 50%',
-    endTrigger: container.querySelector('.saludos-box'),
+    endTrigger: saludosBox,
     end: '80% 50%',
     pin: true,
     pinSpacing: false,
     preventOverlaps: true,
     fastScrollEnd: true,
     onEnter: () => {
-      terrain.classList.add('color-alt');
-    },
-    onLeave: () => {
-      terrain.classList.remove('color-alt');
-    },
-    onEnterBack: () => {
-      terrain.classList.add('color-alt');
-    },
-    onLeaveBack: () => {
-      terrain.classList.remove('color-alt');
-    },
-  });
-
-  /* ScrollTrigger.create({
-    // markers: true,
-    scroller: scrollContainer,
-    trigger: saludos,
-    start: '40% 50%',
-    end: '90% 20%',
-    onEnter: () => {
       saludosPlay(true);
       gsap.set(saludosAlt, {
         top: Math.round(
-          terrain.getBoundingClientRect().top * -1 + window.innerHeight / 2
+          terrain.getBoundingClientRect().top * -1 + window.innerHeight / 2 + 60
         ),
       });
     },
     onLeave: saludosPause,
     onEnterBack: () => saludosPlay(true),
     onLeaveBack: saludosPause,
-  }); */
+  });
 };
